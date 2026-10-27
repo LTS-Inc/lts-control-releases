@@ -1,15 +1,30 @@
 {
   "channel": "stable",
   "version": "1.1.10",
-  "released": "2026-10-27T18:43:27.525Z",
+  "released": "2026-10-27T22:18:17.314Z",
   "assets": {
+    "darwin-arm64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.1.10/LTS-Control-1.1.10-macos-arm64.pkg",
+      "sha256": "74dade2b49f57d25ee2277678b9ee765d10ad0f9944e5a0b5d7ac622f3156089",
+      "size": 102704006
+    },
+    "darwin-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.1.10/LTS-Control-1.1.10-macos-x64.pkg",
+      "sha256": "0e22313ec603927681ad9651a3b0cdc4c5ac768ba4e56966555a56c7c333cc12",
+      "size": 102117320
+    },
     "win32-x64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.1.10/LTS-Control-Setup-1.1.10.exe",
       "sha256": "d64c89dd983e920cd4cc6673654368bffc7ac8cfdf852bad4215729d3c8b924c",
       "size": 105502775
+    },
+    "linux-amd64-deb": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.1.10/lts-control_1.1.10_amd64.deb",
+      "sha256": "fa5362a89f7271b9844d986e3530448022d1cb39070c25c7d1762c91661002ca",
+      "size": 56895836
     }
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.1.10",
   "summary": "## [1.1.10] - 2026-10-27\r\n\r\nRelease 1.1.10. Every link the admin hands out now names the server by localhost and by its LAN address. Zones become something the admin shapes and staff use in two taps: the placement editor renames,\r\ncolours and orders them, and a zone chip in the staff header now selects the whole area so a source tap sends to it.\r\nThe staff layout's widget editor reads as rows, the PIN keypad keeps the admin shortcut to itself and the shortcut\r\nworks there, Apple TV sources carry the Apple mark, the selected-TVs bar no longer collapses when the header is full,\r\nand a fresh public releases repository no longer stops the online update channel from being published.\r\n\r\n### Added\r\n\r\n- **Every address the server answers on, wherever a link is handed out.** The setup checklist, the virtual audio\r\n  controllers' links and QR, the Windows kiosk command and the System page's Server card now list `localhost` (for\r\n  the server's own screen) and each LAN address the server reports (for panels, phones and other PCs), each with a\r\n  Copy button, instead of whatever address the admin's browser happened to use. `GET /api/system/info` carries\r\n  `port` and `addresses`.\r\n- **Zones you can edit.** The placement editor's Zones panel (Admin › Floor plans) now renames a zone in place, picks\r\n  its colour from six swatches, orders the zones with ▲ ▼ (the staff header's chips, the phone's Power and TVs tabs\r\n  follow the order) and keeps a zone off the header's chip row with its **Chip** tick; Add and Delete as before.\r\n  Settings › Staff screens › **Zone chips in the header** hides the row altogether. `ui.zoneChips`.\r\n\r\n### Changed\r\n\r\n- **Zone chips select the zone.** Tapping a zone chip in the staff header selects every TV in that zone (the\r\n  selection bar comes up with the count, the rest of the plan dims) so a source tap sends to the whole zone: chip,\r\n  then source. With a source already armed the chip sends it to the zone at once; a second tap on the chip clears the\r\n  selection. **All** does the same for every TV on the plan. Before, a chip only dimmed the other TVs and renamed the\r\n  bar's \"+ zone\" button.\r\n- **Staff layout's widget editor reads at a glance.** The Top bar / Sidebar / Audio panel / Elsewhere lists are\r\n  full-width rows (two columns on a wide screen) instead of four narrow columns: the widget's whole name, ▲ ▼ and\r\n  the move buttons sit on one line.\r\n- **Apple TV sources carry the Apple mark.** A white silhouette on the source's colour (the colour picker still\r\n  tints the plate) instead of the \"tv\" wordmark, on markers, tiles, rows and the phone.\r\n- **The staff PIN keypad no longer advertises the admin hotkey.** The line under the keypad reads \"Ask a manager\r\n  for the PIN.\"; the admin shortcut and the touch fallback still work there.\r\n- **The video preview on the TV markers is easier to find.** It was always Settings › Staff screens › TV markers ›\r\n  **Live picture on the markers** (plus **Live motion on the selected TVs**); the Preview page now says whether it is\r\n  on with a button that jumps to the switch, the setup checklist's search finds it under \"video preview\", and how-to\r\n  2 explains it.\r\n\r\n### Fixed\r\n\r\n- **The release channel can start from an empty public repository.** The Update manifest workflow created the\r\n  release on the public releases repository before writing the channel file; on a repository without a commit GitHub\r\n  answers 422 \"Repository is empty\" and the channel was neve",
-  "signature": "ed25519:BuJutF9V9VZ1vdADMt6ntdukc3JLuhdY0/POtPAvs1mAzL0AwUwWllfGOXGuZFpyR1k647m91P1frDSRMmgaCQ=="
+  "signature": "ed25519:tlA/ApsgOqIiH88TMYLo0gLyF7AxrAEYjrgzKfyynCv7iBB6TxaL++ChAHgk9E1JI28Ppl/KVL8fh2085JumBw=="
 }
