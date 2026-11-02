@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.2.1",
-  "released": "2026-11-02T23:12:54.068Z",
+  "released": "2026-11-02T23:15:06.034Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.1/LTS-Control-1.2.1-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "d33ebdf919fdddf236ffeda3bc5992e00de58b4c94d7cf8b2b6ea0deb1728a56",
       "size": 111016942
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.1/LTS-Control-Setup-1.2.1.exe",
+      "sha256": "db4e900dfa84ce4962457a3c1e1944be48e1da1922c1cb0dd038f4dc887a1fba",
+      "size": 105613040
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.1/lts-control_1.2.1_amd64.deb",
       "sha256": "5a7b7dd5f37686c8993d1e4d2c90903bc824e936efd9cfa6fca4c4226537b683",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.2.1",
   "summary": "## [1.2.1] - 2026-11-02\r\n\r\nRelease 1.2.1. The audio meters: AtlasIED serves them over UDP only, so the server now keeps that path alive, asks over\r\nUDP when the pushes do not arrive, and every panel says when a processor sends nothing instead of showing silent bars;\r\nthe phone's zone tiles carry the live signal. Around it, a second pass over how the screens feel in use: game-day mode\r\nand drag-to-route on the kiosk, a sport picker and sort on the sports guide, recent sources in the TV sheet, Undo on power off, a clock when the kiosk idles, arrow\r\nkeys on the plan, taps kept across a reconnect; pinned TVs, swipe actions, an Undo chip and a landscape layout on the\r\nphone; level presets and quick picks on every audio strip, the venue logo and name on virtual controllers and phones;\r\nand for the admin a health card, bulk edit on the TVs page, a preset dry-run, settings history with revert, the venue\r\nas a file, and a high-contrast switch per panel.\r\n\r\n### Fixed\r\n\r\n- **Audio signal meters.** AtlasIED's third-party guide (ATS006993 rev B) serves meters over **UDP only**, pushed to\r\n  port 3131 on the server, and some firmware leaves them out of a TCP read; the bars then stayed empty with nothing\r\n  saying why. The server now re-sends the meter subscriptions and a UDP keep-alive with every keep-alive (a stream the\r\n  AZM quietly dropped returns within a minute), asks for the values over UDP as well as TCP when nothing arrives (an\r\n  AZM that answers datagrams but whose pushes are blocked fills the bars that way), logs `atmosphere meters silent`\r\n  once with the whole picture, and the Audio pane says \"No live meters from … yet\" above the zones with the Meters\r\n  line while a connected processor delivers nothing, on every panel. The phone's zone tiles carry the live signal under\r\n  their level bar, which they lacked.\r\n\r\n### Added\r\n\r\n- **Game day on the kiosk.** A header chip, shown while a box reports what it is on: the TV markers say the matchup\r\n  and how far in it is (\"Cowboys at Eagles · 1h12m in\") instead of the channel callsign. Now-playing carries the\r\n  programme's start and end from the guide. Per panel.\r\n- **Sports guide picker.** A row over the cards: a chip per sport with its count (a dropdown on a phone) keeps one\r\n  sport, **Sort** keeps the groups or flattens the guide into one list soonest first (live on top) or by channel\r\n  number, **Live** keeps the games on now, and a counter says how many are shown. No more scrolling past fifty\r\n  football games to reach the hockey.\r\n- **Drag a source onto a TV.** Press a source in the sidebar or the chip strip, move, let go over a TV: a chip follows\r\n  the finger, the TV under it is ringed, the drop routes it. A press that does not travel is still a tap; the list\r\n  still scrolls on its own axis.\r\n- **Recent on this TV.** The TV sheet lists the last three sources this panel switched the TV to, one tap each.\r\n- **Undo on power off**, on the selection bar and the phone's Power tab: the same TVs power on again.\r\n- **Dim to a clock after idle** (Settings › Kiosk panels): the kiosk goes dark with a large clock and the venue name;\r\n  the first touch wakes it and goes no further.\r\n- **Arrow keys on the plan.** On a panel with a keyboard the arrows walk from TV to TV, Enter opens one, Space selects.\r\n- **A tap made while reconnecting is kept.** The last route, power, volume or bar tap made while the server is\r\n  unreachable is sent when the link returns, with a toast; the banner says so and of",
-  "signature": "ed25519:xYwhkRfksqv7bn3pA+nmTG2rKyF7JlZzu+5wHvKP28pGZl+VTP3PUuBp4DQcFPPrx9bh7HIHQkTlPhJOzUW2Aw=="
+  "signature": "ed25519:RpqgqZuGVfWzjTuKU4GJt+77na84fVcyZdj0VHDqPaG9mYkS1ZEGRhnp+cjqLWEHc2f+CIk00mhcZNTHBRTjCg=="
 }
