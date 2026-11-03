@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.2.2",
-  "released": "2026-11-03T00:39:30.653Z",
+  "released": "2026-11-03T00:40:34.366Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.2/LTS-Control-1.2.2-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "7da46903a9dd007c525c4c060fdc6a9e24914a0e4e516ef9a333fb4bbd7406c8",
       "size": 102300270
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.2/LTS-Control-Setup-1.2.2.exe",
+      "sha256": "87d0fbf3e199856ac9275d8b4831752fb691d55a0fb988d2a4d67eee8840c7db",
+      "size": 105636228
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.2/lts-control_1.2.2_amd64.deb",
       "sha256": "9dd66e82d0d7ddf6426e82a0f3e699485c19d9e01996da0cf1ab576dc5a09ebd",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.2.2",
   "summary": "## [1.2.2] - 2026-11-03\r\n\r\nRelease 1.2.2. The Windows software update works again from the panel (the installer could not open its log while\r\nthe server held it), replacing a floor plan image no longer fails on Windows while a panel still has the old\r\npicture, and the live picture on the markers is now a per-TV choice, letterboxed whole and sharp at any size, with a\r\nlog on the Preview page that says why a picture is blank. Also: the source's name beside the callsign on every\r\nmarker, typed degrees and sizes and a grid toggle in the placement editor.\r\n\r\n### Added\r\n\r\n- **Live picture per TV.** A TV's form (TVs page, the placement editor's TV details, bulk edit) gains **Live picture\r\n  on the marker**: venue default, always on or always off, so an LED wall carries its picture while small sets stay\r\n  as cards, or the other way round. Wall markers with the picture on draw each screen from its encoder.\r\n- **Placement editor: degrees, sizes and a grid toggle.** A TV's rotation can be typed in degrees next to the slider,\r\n  its width and height typed as a percentage of the plan, and **Grid lock** / **Free move** in the header decides\r\n  whether drags and resizes snap to the 2 % grid or land where the pointer leaves them.\r\n- **Sources stay tellable apart.** A TV marker's strip reads \"DTV1 · ESPNHD\" instead of the callsign alone, so\r\n  two boxes on the same network can be told apart on the plan, and every sidebar source row carries the source's\r\n  colour as its left edge and a dot by the name, matching the strip; the channel logo and the programme no longer\r\n  hide which source it is.\r\n- **Marker pictures scale with the marker.** The frame is letterboxed into the pane whole instead of cropped to\r\n  fill it (a tall or rotated marker no longer zooms into the middle of the picture), and the frame is asked for\r\n  at the size the marker is drawn times the screen's pixel ratio (320 to 1280 px wide, in steps), so an LED wall\r\n  drawn large is sharp while small cards keep the small download; markers on one source share the largest.\r\n- **Marker picture log** (Admin › Preview): why a TV's picture is blank, as the server saw it per source (the last\r\n  frame or the reason it was refused, `GET /api/preview/thumbs/status`) and as this browser saw it drawing the\r\n  markers (failed frames and streams with the server's reason, and recoveries). The server log says\r\n  `marker picture unavailable` once per change of reason instead of a debug line per retry.\r\n\r\n### Fixed\r\n\r\n- **Software updates on Windows failed with \"exited with code 1 before replacing this server\".** Since 1.1.7 the\r\n  updater passed Inno Setup `/LOG=` the same `install.log` the server keeps open for the command's output; Setup\r\n  cannot open a file another process holds for writing and quits with code 1 before writing a line. The installer\r\n  now logs to `setup.log` beside it, and a failure quotes both files. Until a venue runs a version with this fix,\r\n  the downloaded installer under `C:\\ProgramData\\LTS-Control\\updates\\<version>\\` can be run by hand.\r\n- **Replacing a floor plan image on Windows failed with EBUSY** once a panel had the old picture open (Windows\r\n  cannot unlink an open file), although the new picture was already written. The plan now points at the new\r\n  picture before the old one is removed, and a file that cannot be removed is parked aside (`….stale-…`) and swept\r\n  by a later deletion instead of failing the upload. The same applies to source logos, channel logos and b",
-  "signature": "ed25519:zVZC43UoHoqATOxCwJaZUbuyiVUdLIp+wAUjmDukWuZ3hVCqsCIzE33xre2wVaxc2fHLESjOnVJVTeV1YXJpDA=="
+  "signature": "ed25519:oOiISNLkz7seZ+ZjniA/4+7hXyWeYEZkS3pHwRHxEl3i2+onA8a0N2SMIbkAojbfX0ewcHNrhOmaAjh0JOqJDw=="
 }
