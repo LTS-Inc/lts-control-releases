@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.2.3",
-  "released": "2026-11-03T01:21:23.160Z",
+  "released": "2026-11-03T01:22:05.939Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.3/LTS-Control-1.2.3-macos-arm64.pkg",
@@ -26,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.2.3",
   "summary": "## [1.2.3] - 2026-11-03\r\n\r\nRelease 1.2.3. One fix, for every Windows venue with an AtlasIED Atmosphere: the audio signal bars. The AZM pushes\r\nits meters to UDP 3131 on the server and the Windows firewall was never opened for it, so the bars stayed empty; the\r\ninstaller and the service now open the port, and the processor's Meters line under Admin › Audio says what is\r\nsubscribed and what each path returned instead of \"no readings yet\".\r\n\r\n### Fixed\r\n\r\n- **Audio meters on a Windows server.** The AZM pushes its meters to UDP 3131 on the server and the Windows\r\n  firewall drops unsolicited inbound UDP; the installer opened the web and WebRTC ports but never that one, so the\r\n  bars stayed empty on every panel. The installer adds the rule **LTS-Control AZM meters** and the service adds it\r\n  again at every start (idempotent), so an upgraded install gets it on the next restart; the processor's Meters line\r\n  under Admin › Audio says whether the rule went in. The line also no longer reads \"no readings yet\" forever: a\r\n  processor that has delivered nothing still has its diagnostics (what is subscribed, the UDP port, the read results)\r\n  broadcast every five seconds and the admin page reads them from the server directly.",
-  "signature": "ed25519:b4T9B1tjmT7yBLLiSrkLGbri6gMTwQcSKOWVHVSj7jYbb55h22ari3jFxNnsAngba7nw1XshHNZUvreQi89nBw=="
+  "signature": "ed25519:vnFFN385beTUA/t4YCUJ1wGP6rhrTRRaMSY4io01OVUbrjL+PQTupVa7UiXn0r0k/vzH9xTBOI/s5PHf/7ISDg=="
 }
