@@ -1,30 +1,25 @@
 {
   "channel": "stable",
-  "version": "1.2.3",
-  "released": "2026-11-03T01:22:05.939Z",
+  "version": "1.3.0",
+  "released": "2026-11-04T02:01:33.685Z",
   "assets": {
     "darwin-arm64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.3/LTS-Control-1.2.3-macos-arm64.pkg",
-      "sha256": "eb944fd9d4e30ccc92f831b3e585307400a0f7a82bb5c02e5b653c37058e20dd",
-      "size": 102883270
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.0/LTS-Control-1.3.0-macos-arm64.pkg",
+      "sha256": "e0b000476e6d110115ba7db9f009fa7845b48837e6e5ca78901aa0ff3912b63d",
+      "size": 93812239
     },
     "darwin-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.3/LTS-Control-1.2.3-macos-x64.pkg",
-      "sha256": "84b9311669f6a61b0c33f7caa0a7c98d5707e4f86de54e323cd851ef5864af57",
-      "size": 111051323
-    },
-    "win32-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.3/LTS-Control-Setup-1.2.3.exe",
-      "sha256": "700784807c477038237a5f01ad69961640393313db85149cd30d9a50b01798b9",
-      "size": 105641369
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.0/LTS-Control-1.3.0-macos-x64.pkg",
+      "sha256": "7b26ed5d5bf742a5d5585d9020f8cedb6c073054dea8e46461e07053cdec8db4",
+      "size": 102352198
     },
     "linux-amd64-deb": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.2.3/lts-control_1.2.3_amd64.deb",
-      "sha256": "b3ff141e927bdffc61f07372eba0b96162cd0d4a97d9e6b74329c3dc285c4ad7",
-      "size": 57022736
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.0/lts-control_1.3.0_amd64.deb",
+      "sha256": "4d4822c57dc591cef2c72228a49d8a6b46ded6d982aa3bea8fe39577709617b9",
+      "size": 57086984
     }
   },
-  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.2.3",
-  "summary": "## [1.2.3] - 2026-11-03\r\n\r\nRelease 1.2.3. One fix, for every Windows venue with an AtlasIED Atmosphere: the audio signal bars. The AZM pushes\r\nits meters to UDP 3131 on the server and the Windows firewall was never opened for it, so the bars stayed empty; the\r\ninstaller and the service now open the port, and the processor's Meters line under Admin › Audio says what is\r\nsubscribed and what each path returned instead of \"no readings yet\".\r\n\r\n### Fixed\r\n\r\n- **Audio meters on a Windows server.** The AZM pushes its meters to UDP 3131 on the server and the Windows\r\n  firewall drops unsolicited inbound UDP; the installer opened the web and WebRTC ports but never that one, so the\r\n  bars stayed empty on every panel. The installer adds the rule **LTS-Control AZM meters** and the service adds it\r\n  again at every start (idempotent), so an upgraded install gets it on the next restart; the processor's Meters line\r\n  under Admin › Audio says whether the rule went in. The line also no longer reads \"no readings yet\" forever: a\r\n  processor that has delivered nothing still has its diagnostics (what is subscribed, the UDP port, the read results)\r\n  broadcast every five seconds and the admin page reads them from the server directly.",
-  "signature": "ed25519:vnFFN385beTUA/t4YCUJ1wGP6rhrTRRaMSY4io01OVUbrjL+PQTupVa7UiXn0r0k/vzH9xTBOI/s5PHf/7ISDg=="
+  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.0",
+  "summary": "## [1.3.0] - 2026-11-04\r\n\r\nRelease 1.3.0, a round of staff-screen, phone and admin improvements that keep every layout working on a kiosk, a\r\ndesktop and a phone. On the floor plan: lasso several TVs, hold a TV for its sources, \"same as another TV\", zoom and\r\npan, a **Where is the game?** search that lights the TVs and boxes showing a team or channel, channel tiles that tune\r\nthe least-disturbed box, a five-minute alert before every scheduled tune, and a warning when a route lands on a box a\r\nbooking will switch. Audio: scene tiles say what the scene set, every strip draws its recent level changes, and a\r\nstrip under the pointer lights its floor-plan zone. Phones get a Quick tab, shake to refresh and a QR code to open the\r\npanel. Admins get a swap wizard for a dead decoder, the last three floor plan drawings with Revert, a history timeline\r\nunder every TV and source, Run on preset rows, a before/after list on the save bar, a Panels list with stale-build\r\nflags, and a larger-buttons switch beside high contrast.\r\n\r\n### Added\r\n\r\n- **Floor plan gestures.** Drag a box on empty plan to **lasso** the TVs inside; **hold** a TV for half a second and\r\n  its sources fan out around the finger (release over one to route it); **Same as another TV** in the TV sheet and\r\n  the phone's TV page gives a TV another TV's source in one tap; the plan **zooms and pans** (pinch, scroll, drag, and\r\n  a **+ − fit** cluster); sending TVs to a box that a scheduled tune will switch within the hour warns in the toast.\r\n- **Where is the game?** A search box in the plan's header: a TV name, team, channel or programme lights the TVs\r\n  showing it and dims the rest, rings the boxes that have it on in the sidebar, and a line over the plan counts them.\r\n  It reads \"Find a TV or source\" while no box reports a programme and works as a TV and source finder.\r\n- **Channel tiles on the plan.** Every box's favourite channels as one row under the sources; a tap tunes the box that\r\n  carries the channel and disturbs the fewest TVs (one already on it is used as is) and sends the selected TVs there,\r\n  or arms it for tapping TVs.\r\n- **Game-start alerts.** Five minutes before a booked tune every panel gets a toast (\"In 5 min: Cowboys at Eagles on\r\n  DirecTV1 · 4 TVs will switch\") with **Move TVs too**, which arms the box on that panel; the scheduler wakes for the\r\n  alert as well as the tune. Toasts can now carry one action over the wire.\r\n- **Audio: what a scene sets.** A moment after a scene is recalled from a panel, every zone the AZM then reports\r\n  differently is written down, and the tile says so from then on (\"Bar 70% · Patio muted · Dining → Jukebox\"); the\r\n  AZM itself does not describe its scenes.\r\n- **Audio: level history.** The server keeps each zone's last 120 level and mute changes\r\n  (`GET /api/audio/<device>/history`) and every strip draws them as a small line beside the readout, dotted while\r\n  muted: a flat line is a zone nobody touched.\r\n- **Audio: zone highlight.** Resting the pointer on a zone strip linked to a floor-plan zone lights that zone's TVs\r\n  on the plan and dims the rest.\r\n- **Phone: Quick tab.** A built-in tab with the TVs this phone pinned (and what they show), the presets, the audio\r\n  master row and All TVs power on one screen; it sits on the bar like every other tab (Settings › Phones orders and\r\n  hides it; existing venues get it appended).\r\n- **Phone: shake to refresh.** Three sharp jolts reconnect and refetch, as the pull on the list do",
+  "signature": "ed25519:xp8fxOrH85gGo82LTVPYu+oe6KVw6i7azv6tI6cNPmzHegfx0qV8zv0aCSvFSGBv+XLDtLJq1vdIvIB7ebGWAw=="
 }
