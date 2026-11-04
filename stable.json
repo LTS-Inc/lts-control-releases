@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.0",
-  "released": "2026-11-04T02:01:33.685Z",
+  "released": "2026-11-04T02:03:31.218Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.0/LTS-Control-1.3.0-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "7b26ed5d5bf742a5d5585d9020f8cedb6c073054dea8e46461e07053cdec8db4",
       "size": 102352198
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.0/LTS-Control-Setup-1.3.0.exe",
+      "sha256": "ecaaf984e042edc325d285d0f766c12162a060355ca19b7bb481c608ad9f6d86",
+      "size": 105698591
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.0/lts-control_1.3.0_amd64.deb",
       "sha256": "4d4822c57dc591cef2c72228a49d8a6b46ded6d982aa3bea8fe39577709617b9",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.0",
   "summary": "## [1.3.0] - 2026-11-04\r\n\r\nRelease 1.3.0, a round of staff-screen, phone and admin improvements that keep every layout working on a kiosk, a\r\ndesktop and a phone. On the floor plan: lasso several TVs, hold a TV for its sources, \"same as another TV\", zoom and\r\npan, a **Where is the game?** search that lights the TVs and boxes showing a team or channel, channel tiles that tune\r\nthe least-disturbed box, a five-minute alert before every scheduled tune, and a warning when a route lands on a box a\r\nbooking will switch. Audio: scene tiles say what the scene set, every strip draws its recent level changes, and a\r\nstrip under the pointer lights its floor-plan zone. Phones get a Quick tab, shake to refresh and a QR code to open the\r\npanel. Admins get a swap wizard for a dead decoder, the last three floor plan drawings with Revert, a history timeline\r\nunder every TV and source, Run on preset rows, a before/after list on the save bar, a Panels list with stale-build\r\nflags, and a larger-buttons switch beside high contrast.\r\n\r\n### Added\r\n\r\n- **Floor plan gestures.** Drag a box on empty plan to **lasso** the TVs inside; **hold** a TV for half a second and\r\n  its sources fan out around the finger (release over one to route it); **Same as another TV** in the TV sheet and\r\n  the phone's TV page gives a TV another TV's source in one tap; the plan **zooms and pans** (pinch, scroll, drag, and\r\n  a **+ − fit** cluster); sending TVs to a box that a scheduled tune will switch within the hour warns in the toast.\r\n- **Where is the game?** A search box in the plan's header: a TV name, team, channel or programme lights the TVs\r\n  showing it and dims the rest, rings the boxes that have it on in the sidebar, and a line over the plan counts them.\r\n  It reads \"Find a TV or source\" while no box reports a programme and works as a TV and source finder.\r\n- **Channel tiles on the plan.** Every box's favourite channels as one row under the sources; a tap tunes the box that\r\n  carries the channel and disturbs the fewest TVs (one already on it is used as is) and sends the selected TVs there,\r\n  or arms it for tapping TVs.\r\n- **Game-start alerts.** Five minutes before a booked tune every panel gets a toast (\"In 5 min: Cowboys at Eagles on\r\n  DirecTV1 · 4 TVs will switch\") with **Move TVs too**, which arms the box on that panel; the scheduler wakes for the\r\n  alert as well as the tune. Toasts can now carry one action over the wire.\r\n- **Audio: what a scene sets.** A moment after a scene is recalled from a panel, every zone the AZM then reports\r\n  differently is written down, and the tile says so from then on (\"Bar 70% · Patio muted · Dining → Jukebox\"); the\r\n  AZM itself does not describe its scenes.\r\n- **Audio: level history.** The server keeps each zone's last 120 level and mute changes\r\n  (`GET /api/audio/<device>/history`) and every strip draws them as a small line beside the readout, dotted while\r\n  muted: a flat line is a zone nobody touched.\r\n- **Audio: zone highlight.** Resting the pointer on a zone strip linked to a floor-plan zone lights that zone's TVs\r\n  on the plan and dims the rest.\r\n- **Phone: Quick tab.** A built-in tab with the TVs this phone pinned (and what they show), the presets, the audio\r\n  master row and All TVs power on one screen; it sits on the bar like every other tab (Settings › Phones orders and\r\n  hides it; existing venues get it appended).\r\n- **Phone: shake to refresh.** Three sharp jolts reconnect and refetch, as the pull on the list do",
-  "signature": "ed25519:xp8fxOrH85gGo82LTVPYu+oe6KVw6i7azv6tI6cNPmzHegfx0qV8zv0aCSvFSGBv+XLDtLJq1vdIvIB7ebGWAw=="
+  "signature": "ed25519:UmWT1zlUOAN35zTdE7uX5vsd/7YP9TNME5ZO07x+kkmF8b+rN/JW7UqoG5a6ctsXN29NMqbkiXpgVei7In/FAg=="
 }
