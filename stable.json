@@ -1,30 +1,25 @@
 {
   "channel": "stable",
-  "version": "1.3.2",
-  "released": "2026-11-07T18:34:17.180Z",
+  "version": "1.3.3",
+  "released": "2026-11-07T22:56:09.659Z",
   "assets": {
     "darwin-arm64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.2/LTS-Control-1.3.2-macos-arm64.pkg",
-      "sha256": "32cfcc26562e9876e1c42f96bdd8c7f45a1abce5743f220b92748d1d34acdf14",
-      "size": 93850948
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/LTS-Control-1.3.3-macos-arm64.pkg",
+      "sha256": "0b222c927aa06f627e46c36886579a62830d610f4b3aa5803a7d02d56eca5949",
+      "size": 93876761
     },
     "darwin-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.2/LTS-Control-1.3.2-macos-x64.pkg",
-      "sha256": "75ba3482748d949910920cfb876c3d46ef8b1ce336bafff6ff6b2f7a06743ac3",
-      "size": 102400804
-    },
-    "win32-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.2/LTS-Control-Setup-1.3.2.exe",
-      "sha256": "53907f65935b2e1592ba6b82a8e5cddcc9747901e67833adf0dd6abc2a9182e0",
-      "size": 105731335
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/LTS-Control-1.3.3-macos-x64.pkg",
+      "sha256": "5fa0476c86fae40e02c4ca752813d5b5260bddee346cf966fa2f2a706ccc675a",
+      "size": 102421717
     },
     "linux-amd64-deb": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.2/lts-control_1.3.2_amd64.deb",
-      "sha256": "9935274be2cb568b59a37ec04b2f8142dff286acf05714c948473f149337c839",
-      "size": 57111492
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/lts-control_1.3.3_amd64.deb",
+      "sha256": "279163061bed0fac036029519f5911603581e6ee2f8aa1098c439244e85c283e",
+      "size": 57114752
     }
   },
-  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.2",
-  "summary": "## [1.3.2] - 2026-11-07\r\n\r\nRelease 1.3.2. The Atmosphere's mixes reach the staff screens with each source's own level inside the mix, as\r\nthe AZM's Sources page shows them, placed above or below the zones from Admin › Audio; and a virtual audio\r\ncontroller comes back on the same tab with the same zone open after a reload, so a wall panel whose browser\r\nrestarts does not land staff on the first tab.\r\n\r\n### Added\r\n\r\n- **Mixes with their sources' own levels.** The AZM's mixes now appear in the staff audio section (kiosk sidebar\r\n  and the phone's Audio tab) as strips with their own meter, fader, Mute and ±3 dB, and a **sources** fold-out\r\n  that lists every source inside the mix on its own fader and mute, the per-source level the Atmosphere page\r\n  shows (\"Mix - Inside DJ\": DTV 1 −2 dB, DTV 2 muted…). Audio › Staff screens › **Mixes in the section** puts\r\n  them above or below the zones, or leaves them to the Audio pane, whose Sources & mixes tab gets the same editable\r\n  fold-out. The server subscribes to every mix's per-source gain and mute and writes them through\r\n  `POST /api/audio/:device/level` with `mixSource` (audited as \"Background ‹ Mic 40 %\").\r\n- **Virtual controllers come back where they were.** A virtual audio controller keeps its tab and the opened zone\r\n  (a tile opened, a strip's sources folded out) and mix fold-out in its address (`?tab=scenes&zone=1`), so a reload\r\n  or a panel whose browser restarts lands on the same view with that zone scrolled into view, and the link can be\r\n  shared as it stands.\r\n\r\n## [1.3.1] - 2026-11-07\r\n\r\nRelease 1.3.1. Every feature 1.3.0 added can now be switched off for a venue (Settings › Staff screens › Floor\r\nplan gestures and Scheduled tunes, Audio › Staff screens, Settings › General › Admin tools), the readability\r\nswitches live on a new Settings › Accessibility tab with venue-wide defaults, text size and motion, and the encoder\r\npictures on markers, tiles and the TV sheet ride out an encoder that hiccups instead of flashing \"unavailable\". A\r\nreview of every phone screen fixed the crowded tab bar, the Plan tab, the source page on its side and the marker\r\ncrowding on a phone-width plan.\r\n\r\n### Added\r\n\r\n- **A switch for everything 1.3.0 added.** Settings › Staff screens › **Floor plan gestures** (lasso, hold a TV\r\n  for its sources, zoom and pan, the Where is the game? box, channel tiles, the booked-tune warning, Same as\r\n  another TV) and **Scheduled tunes** (the alert before a booked tune, and how many minutes before); Audio › Staff\r\n  screens: scene learning, the level history line, the zone highlight; Settings › General › **Admin tools**: History\r\n  rows under a TV or source, earlier drawings kept, Run on preset rows.\r\n- **Settings › Accessibility.** High contrast and larger buttons as venue defaults (the ◐ and ⤢ on a panel still\r\n  override them there, and can be hidden), text size (normal, large, larger) and motion (follow the device, or\r\n  always reduce). A panel that never touched its switches now follows the venue; one that did keeps its choice.\r\n\r\n### Fixed\r\n\r\n- **Phone tab bar with many tabs.** Eight tabs (a venue with pages, Quick, Audio and Walls) cut every name to\r\n  \"SOURC…\"; the bar now scrolls sideways once there are more than five, each tab keeps a readable width, and\r\n  the open tab is kept in view.\r\n- **Phone Plan tab.** The plan opened wider than the screen with its right-hand TVs out of view and no way back\r\n  but scrolling; it",
-  "signature": "ed25519:XQ02aSvcB0hwQmV+V8W1C3nk0GbBZ2x7SzT5fXrhVpK+9eyk1UU29yvQ828Jo7zBE2js+eKM9zJ2o7FST9XeDg=="
+  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.3",
+  "summary": "## [1.3.3] - 2026-11-07\r\n\r\nRelease 1.3.3. A fix for every venue with an AtlasIED Atmosphere: the AZM numbers its mixes after its source slots,\r\nso no mix was ever found on real hardware and a zone listening to one read \"Source 14\". Mixes now appear everywhere\r\nthey should, a zone on a mix is named, and a zone can be routed to a mix; a firmware without per-source levels inside\r\nits mixes keeps its zones and mixes and says so on the device's page.\r\n\r\n### Fixed\r\n\r\n- **Mixes on a real Atmosphere.** An AZM numbers its mixes after its source slots, in the same space a zone's source\r\n  value uses (`MixName_14` and up on an AZM8, 8 and up on an AZM4; the AtlasIED manual's \"use the number after the\r\n  underscore in SourceName\" and the Crestron module's \"Parameter Index 14 for the mix\"), and discovery only probed\r\n  `MixName_0…7`: no mix was ever found, and a zone listening to one read \"Source 14\". Discovery now probes the whole\r\n  range, the strips name such a zone's source \"<mix> (mix)\", the source selects, the rail and the fold-outs offer every\r\n  mix after the sources, and the per-mix source levels are asked for in their own subscription so a firmware without\r\n  them keeps its zones and mixes (the device's page says **Mix sources: …** either way).",
+  "signature": "ed25519:suT24hRM7ufTjjuzYndOFVzvnSD93ThDQaRzBMaeEAmV3XUPNMC5scLqtL8ZG6QZwnt/QrFY10Y8ePANdLK1Bw=="
 }
