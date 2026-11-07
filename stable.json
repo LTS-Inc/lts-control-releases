@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.3",
-  "released": "2026-11-07T22:56:09.659Z",
+  "released": "2026-11-07T22:56:40.969Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/LTS-Control-1.3.3-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "5fa0476c86fae40e02c4ca752813d5b5260bddee346cf966fa2f2a706ccc675a",
       "size": 102421717
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/LTS-Control-Setup-1.3.3.exe",
+      "sha256": "a34d18a7929e0ee9dbb3cb895c2d8a7a15c5c0c54ecd9301dce29904077ec6ad",
+      "size": 105738256
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/lts-control_1.3.3_amd64.deb",
       "sha256": "279163061bed0fac036029519f5911603581e6ee2f8aa1098c439244e85c283e",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.3",
   "summary": "## [1.3.3] - 2026-11-07\r\n\r\nRelease 1.3.3. A fix for every venue with an AtlasIED Atmosphere: the AZM numbers its mixes after its source slots,\r\nso no mix was ever found on real hardware and a zone listening to one read \"Source 14\". Mixes now appear everywhere\r\nthey should, a zone on a mix is named, and a zone can be routed to a mix; a firmware without per-source levels inside\r\nits mixes keeps its zones and mixes and says so on the device's page.\r\n\r\n### Fixed\r\n\r\n- **Mixes on a real Atmosphere.** An AZM numbers its mixes after its source slots, in the same space a zone's source\r\n  value uses (`MixName_14` and up on an AZM8, 8 and up on an AZM4; the AtlasIED manual's \"use the number after the\r\n  underscore in SourceName\" and the Crestron module's \"Parameter Index 14 for the mix\"), and discovery only probed\r\n  `MixName_0…7`: no mix was ever found, and a zone listening to one read \"Source 14\". Discovery now probes the whole\r\n  range, the strips name such a zone's source \"<mix> (mix)\", the source selects, the rail and the fold-outs offer every\r\n  mix after the sources, and the per-mix source levels are asked for in their own subscription so a firmware without\r\n  them keeps its zones and mixes (the device's page says **Mix sources: …** either way).",
-  "signature": "ed25519:suT24hRM7ufTjjuzYndOFVzvnSD93ThDQaRzBMaeEAmV3XUPNMC5scLqtL8ZG6QZwnt/QrFY10Y8ePANdLK1Bw=="
+  "signature": "ed25519:bRc+Xj1kk9Zbb/Zql03U2mbbhOftBPWlnSa+xC6sy14ooBVmtCfwrrlUIkfP9i+5vMMgtxgsyOAWv0wUz/9YBQ=="
 }
