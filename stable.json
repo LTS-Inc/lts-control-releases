@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.8",
-  "released": "2026-11-08T22:09:01.898Z",
+  "released": "2026-11-08T22:10:35.590Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.8/LTS-Control-1.3.8-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "e426e8c6a9c831f41f3ec4cc700717f9d3734ff630d19e673ace9da05c247548",
       "size": 111257442
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.8/LTS-Control-Setup-1.3.8.exe",
+      "sha256": "3b12c9e140fb99698607018c41b1509666d81d587d88c04e795658783a0ca6e2",
+      "size": 105795704
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.8/lts-control_1.3.8_amd64.deb",
       "sha256": "ea7c13436af9ce8642bb9c4a418b292e3b79723104fce6ae9730c7ca0a314e74",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.8",
   "summary": "## [1.3.8] - 2026-11-08\r\n\r\nRelease 1.3.8. Software updates get a staged progress bar and every open panel reloads itself onto the new build\r\n(with Reload buttons on the Panels card for the ones that do not); Right now rows can be dismissed; the staff header\r\nnames the build and opens What's new; the Devices reachability strips stop painting the server's own downtime red and\r\ntell a controller-link drop from a device's own; and a new \"Every audio zone → source\" step plus a Game day switch on\r\nthe Audio pane's master row give the bar one-tap game-audio / DJ buttons, with a how-to on custom buttons and macros.\r\n\r\n### Added\r\n\r\n- **A progress bar for Update now.** Installing shows the steps (installer started, pre-upgrade backup, server\r\n  stops, files replaced and the new version starts, the new version answers) with the time so far and how long the\r\n  last update took. The server reads the Windows installer's own log while it is still up (`applyStep` in the\r\n  update status), and once it has stopped the bar sits on \"files replaced\" until the new version answers; the\r\n  outcome records the duration (`lastUpdate.durationSec`).\r\n- **Panels reload themselves after an update, and from the Panels card.** A page that reconnects to a server\r\n  serving a newer build than the one it runs reloads once onto it, so no kiosk keeps the old screens. Admin ›\r\n  System › Overview › Panels gets **Reload** per panel, **Reload the n on an older build** and **Reload all**\r\n  (`POST /api/system/panels/:id/reload`, `/api/system/panels/reload`; `panel.reload` over the socket).\r\n- **Right now rows can be dismissed.** **Dismiss** hides a row on this browser (the heading's count drops it;\r\n  **n dismissed · show** lists the hidden ones with **Restore**); a row returns by itself when it changes or goes\r\n  away and comes back.\r\n- **The version in the staff header.** A chip next to Online names the build the panel runs; a tap opens\r\n  **What's new**, the changelog, for staff. Settings › Kiosk panels › **Show the version next to Online**\r\n  (`ui.kiosk.showVersion`, on by default) hides it.\r\n- **Every audio zone → source, as a step.** A new step (`audio_source_all`) puts every configured zone of an\r\n  Atmosphere on one source, mix or nothing in one command batch, for custom buttons anywhere (the Audio pane's\r\n  master row, phone pages, the selected-TVs bar, presets): a \"Game audio\" and a \"DJ\" button switch the whole room\r\n  for a commercial break. The step editor lists the sources and the mixes; the preset plan words it.\r\n- **Game day on the Audio pane's master row.** A new built-in switch: on, the panel that tapped it hides the\r\n  processor's mixes and shows the zones alone (each panel keeps its own; shown only when the processor has mixes;\r\n  rename, recolour or hide it like any built-in).\r\n- **How-to 31: custom buttons and macros.** Where a custom button can live (the master row, phone pages, the\r\n  selected-TVs bar, widgets, presets), every step type for NetworkHD, set-top boxes, Global Caché and the\r\n  Atmosphere, and worked examples (game audio and DJ from the phone, close down, one TV's input).\r\n\r\n### Fixed\r\n\r\n- **Reachability strips painted the server's own downtime red.** A clean server stop marked every device offline\r\n  and the next start marked them online, so the hours the server was off (a restart, an update, the box off\r\n  overnight) read as the devices being unreachable, and Right now counted every device as flapping after a few\r\n  controll",
-  "signature": "ed25519:T0FvfdXHZX3ramZOJkQRuS8GjuVUWWkgsu3/74y8cf+tGIcVvbk15kuUAII8T8Ec5YI+iJdvb59gJMrh3fuDDQ=="
+  "signature": "ed25519:7nAK/GnXIm0lw9wB5lg4MxQPA0hx07U8yH9JkfkvtfzK+OLLErm3zLBa10TCLFstJFCSzHz9A63C/+gZ6IlIBA=="
 }
