@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.7",
-  "released": "2026-11-08T20:16:51.752Z",
+  "released": "2026-11-08T20:17:27.838Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.7/LTS-Control-1.3.7-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "11676f51289a752055aecd528ff24f13ce1cc1f8b6f8310c924cd0e97ae20197",
       "size": 102446009
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.7/LTS-Control-Setup-1.3.7.exe",
+      "sha256": "c261eacb43d3fb7d429bc6f3c3cd31adaff6cfe199b06d5dd61d1561ad8fb322",
+      "size": 105766806
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.7/lts-control_1.3.7_amd64.deb",
       "sha256": "25fb3dc34cf58a1a5abd986d88403c8942e63e782bf6cab2bcf5ceace13b9e33",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.7",
   "summary": "# [1.3.7] - 2026-11-08\r\n\r\nRelease 1.3.7. On the phone's floor plan, and on the Route picker's, a selected TV shows a ring and a tick and only\r\nthe one just tapped carries its name, so a crowd of selected TVs stays readable.\r\n\r\n### Fixed\r\n\r\n- **Selected TVs' names piled up on the phone's plan.** Every selected dot carried its name, so a cluster of\r\n  selected TVs hid its neighbours' dots and names under each other. A selected dot now shows a ring and a tick,\r\n  only the TV just tapped carries its name, and the strip under the plan (or the picker's list) names them all.",
-  "signature": "ed25519:7l90Y62NlkWXs19+7VP1OX9xe3Eco6MBSHfYmPUVLMX3P22HiODv2DpMEaOYnGOQjYpP08PM2Xo+j3XyZPk/Aw=="
+  "signature": "ed25519:zA6Lv8vHZTpLEXJeZZ5KRgc1Q1zAg9A0gaH3NgSryKze8mYohi8gN8H9iMOcWZnDIMwWQgKigRphWRwvGelTDg=="
 }
