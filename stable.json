@@ -1,30 +1,25 @@
 {
   "channel": "stable",
-  "version": "1.3.3",
-  "released": "2026-11-07T22:56:40.969Z",
+  "version": "1.3.4",
+  "released": "2026-11-08T01:50:59.111Z",
   "assets": {
     "darwin-arm64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/LTS-Control-1.3.3-macos-arm64.pkg",
-      "sha256": "0b222c927aa06f627e46c36886579a62830d610f4b3aa5803a7d02d56eca5949",
-      "size": 93876761
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.4/LTS-Control-1.3.4-macos-arm64.pkg",
+      "sha256": "6779326209564f346daa7033c6a164b948f53405690a61cddf22815e76895f96",
+      "size": 93874621
     },
     "darwin-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/LTS-Control-1.3.3-macos-x64.pkg",
-      "sha256": "5fa0476c86fae40e02c4ca752813d5b5260bddee346cf966fa2f2a706ccc675a",
-      "size": 102421717
-    },
-    "win32-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/LTS-Control-Setup-1.3.3.exe",
-      "sha256": "a34d18a7929e0ee9dbb3cb895c2d8a7a15c5c0c54ecd9301dce29904077ec6ad",
-      "size": 105738256
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.4/LTS-Control-1.3.4-macos-x64.pkg",
+      "sha256": "91cf26af73bd52c3f43e43bd01898e08b3a9e5d4abc080c2d12fc7ae2713a83b",
+      "size": 102423355
     },
     "linux-amd64-deb": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.3/lts-control_1.3.3_amd64.deb",
-      "sha256": "279163061bed0fac036029519f5911603581e6ee2f8aa1098c439244e85c283e",
-      "size": 57114752
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.4/lts-control_1.3.4_amd64.deb",
+      "sha256": "047eae2d9cb1301087f5f6cd48e730b5a53153cbb72ff06b1ae9d9adf7e7c2ed",
+      "size": 57115952
     }
   },
-  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.3",
-  "summary": "## [1.3.3] - 2026-11-07\r\n\r\nRelease 1.3.3. A fix for every venue with an AtlasIED Atmosphere: the AZM numbers its mixes after its source slots,\r\nso no mix was ever found on real hardware and a zone listening to one read \"Source 14\". Mixes now appear everywhere\r\nthey should, a zone on a mix is named, and a zone can be routed to a mix; a firmware without per-source levels inside\r\nits mixes keeps its zones and mixes and says so on the device's page.\r\n\r\n### Fixed\r\n\r\n- **Mixes on a real Atmosphere.** An AZM numbers its mixes after its source slots, in the same space a zone's source\r\n  value uses (`MixName_14` and up on an AZM8, 8 and up on an AZM4; the AtlasIED manual's \"use the number after the\r\n  underscore in SourceName\" and the Crestron module's \"Parameter Index 14 for the mix\"), and discovery only probed\r\n  `MixName_0…7`: no mix was ever found, and a zone listening to one read \"Source 14\". Discovery now probes the whole\r\n  range, the strips name such a zone's source \"<mix> (mix)\", the source selects, the rail and the fold-outs offer every\r\n  mix after the sources, and the per-mix source levels are asked for in their own subscription so a firmware without\r\n  them keeps its zones and mixes (the device's page says **Mix sources: …** either way).",
-  "signature": "ed25519:bRc+Xj1kk9Zbb/Zql03U2mbbhOftBPWlnSa+xC6sy14ooBVmtCfwrrlUIkfP9i+5vMMgtxgsyOAWv0wUz/9YBQ=="
+  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.4",
+  "summary": "## [1.3.4] - 2026-11-08\r\n\r\nRelease 1.3.4. The Atmosphere mixes now read as they do on the AZM's own page: the admin ticks which sources are\r\nin each mix (the AZM does not say), the phone's full-screen zone page lists the mixes so a zone on one can be seen and\r\nchanged, and a virtual controller can use that same zone page as its Zones layout. The phone header's Admin button\r\nworks again on a phone that already logged in.\r\n\r\n### Added\r\n\r\n- **Sources inside each mix.** The AZM answers a level for every source against every mix and never says which\r\n  sources were added to a mix (its Message Table lists only the mix's own gain, meter, mute and name), so a mix's\r\n  fold-out listed every source. Audio › Staff screens › **Sources inside each mix** is where the admin ticks the\r\n  members per mix, in the order the Atmosphere page lists them; the fold-out on the sidebar, the phone and the Audio\r\n  pane then shows that pick in that order, and nothing ticked shows every source (`audio.pane.mixMembers`).\r\n- **The phone's zone page on a virtual controller.** Audio › Staff screens › **Zones on a phone** gains a fourth\r\n  shape, **zone tiles that open full screen**: the tapped zone opens as the phone Audio tab's page, a tall fader with\r\n  the meter beside it, big Mute and ±3 dB, the level presets, and the sources and mixes as a tap list; Back closes it\r\n  and the open zone is kept in the controller's address.\r\n\r\n### Fixed\r\n\r\n- **A zone on a mix in the phone's zone page.** The full-screen zone page listed only the sources, so a zone on a mix\r\n  read \"Listening to a mix or another input (14)\" with nothing to tap. The mixes now sit in the list after the\r\n  sources, marked \"(mix)\", the one playing is lit, and tapping one routes the zone to it.\r\n- **Admin on a phone that already logged in.** The phone header's **Admin** button only opened the password prompt,\r\n  which is skipped while the browser holds an admin session, so a phone that had logged in once got nothing on later\r\n  taps. It now opens the admin screens straight away in that case, as the desktop header does.",
+  "signature": "ed25519:jWTiK1YY1z/QI+NjRPa/gYgrrbczwZJzeqkQbTPZnulmI0L5/5ExgfrxkgfL247miGe5RQXRLisohdfGik8CDw=="
 }
