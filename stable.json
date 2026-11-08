@@ -1,30 +1,25 @@
 {
   "channel": "stable",
-  "version": "1.3.6",
-  "released": "2026-11-08T18:57:47.022Z",
+  "version": "1.3.7",
+  "released": "2026-11-08T20:16:51.752Z",
   "assets": {
     "darwin-arm64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.6/LTS-Control-1.3.6-macos-arm64.pkg",
-      "sha256": "d1a6ade2513b31ca8bd6c139794dcb03f54a0de6afc16b6a592a77ce7d59067f",
-      "size": 93903440
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.7/LTS-Control-1.3.7-macos-arm64.pkg",
+      "sha256": "88ac39f27e94a682762cb3aef47fe6dcafeb21963b9fce128de216aadb075ebd",
+      "size": 93903523
     },
     "darwin-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.6/LTS-Control-1.3.6-macos-x64.pkg",
-      "sha256": "054d6933c5a9e236679aaff24049e4a5aaf5c80eff8871fdada695d9e5a8c924",
-      "size": 102442038
-    },
-    "win32-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.6/LTS-Control-Setup-1.3.6.exe",
-      "sha256": "643d77983cda771b354c2090131aa04baa7f9fe26ee1ebd55924bc2ee923326d",
-      "size": 105755740
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.7/LTS-Control-1.3.7-macos-x64.pkg",
+      "sha256": "11676f51289a752055aecd528ff24f13ce1cc1f8b6f8310c924cd0e97ae20197",
+      "size": 102446009
     },
     "linux-amd64-deb": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.6/lts-control_1.3.6_amd64.deb",
-      "sha256": "02ebb6ff318f1ad217ed058fc79da6b544179867280deb3e78d6681f724bdb21",
-      "size": 57125984
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.7/lts-control_1.3.7_amd64.deb",
+      "sha256": "25fb3dc34cf58a1a5abd986d88403c8942e63e782bf6cab2bcf5ceace13b9e33",
+      "size": 57131052
     }
   },
-  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.6",
-  "summary": "## [1.3.6] - 2026-11-08\r\n\r\nRelease 1.3.6. The phone's floor plan works like a seat map: tap TVs on the plan, several at a time, then tap a\r\nsource under it and they all switch; the Route picker carries the same plan; a TV's name at the top edge is no longer\r\ncut off; and a fader row no longer jitters while it is dragged.\r\n\r\n### Added\r\n\r\n- **The phone's floor plan picks the TVs, the list under it picks the source.** The TVs tab's Floor plan view now\r\n  lists the sources under the plan, like a seat map with the shows under it: tap dots to select TVs, several at a\r\n  time, then tap a source and every selected TV switches to it; a tap on the plan itself clears. The selected TVs\r\n  sit in a strip over the list, and a tap on one opens its page (remote, channels, power). With nothing selected a\r\n  source tap lights the TVs showing it on the plan, and the search box fades the dots that do not match. Sources ›\r\n  **Route** opens with the same plan on top of its TV list, so a source can be sent by tapping dots as well as\r\n  rows. The zone chips under the plan follow Settings › Phones › TVs tab › **Zones on the tab**, the same order and\r\n  hidden set as the list.\r\n- **A TV's name cut off at the top of the phone's plan.** A selected dot near the top edge drew its name above the\r\n  dot, outside the plan's box, so it was clipped; the name now sits below such a dot, and hugs the near side at the\r\n  left and right edges.\r\n- **A fader row jittered while it was dragged.** A level readout grew and shrank with its digits (\"5%\" to \"100%\"),\r\n  which resized the fader sharing its column (a source inside a mix, the Audio pane's source strips) so the thumb\r\n  jumped under the finger, and could hop a readout between lines of a wrapping button row. Every readout now has\r\n  the width of its widest value, so no row reflows while a fader moves; the sources inside a mix, where the readout\r\n  sits on the line right above the fader, drop the drag bubble that covered the source's name.",
-  "signature": "ed25519:kEz7s17v26Hew98OjTISIrxyfRCwUnq5Jlfu5xFVc5APJ4rVq0hUgCpQAVDBLNvSTEFyUejVV0L4kdN9G4C8BA=="
+  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.7",
+  "summary": "# [1.3.7] - 2026-11-08\r\n\r\nRelease 1.3.7. On the phone's floor plan, and on the Route picker's, a selected TV shows a ring and a tick and only\r\nthe one just tapped carries its name, so a crowd of selected TVs stays readable.\r\n\r\n### Fixed\r\n\r\n- **Selected TVs' names piled up on the phone's plan.** Every selected dot carried its name, so a cluster of\r\n  selected TVs hid its neighbours' dots and names under each other. A selected dot now shows a ring and a tick,\r\n  only the TV just tapped carries its name, and the strip under the plan (or the picker's list) names them all.",
+  "signature": "ed25519:7l90Y62NlkWXs19+7VP1OX9xe3Eco6MBSHfYmPUVLMX3P22HiODv2DpMEaOYnGOQjYpP08PM2Xo+j3XyZPk/Aw=="
 }
