@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.4",
-  "released": "2026-11-08T02:10:01.734Z",
+  "released": "2026-11-08T02:10:40.123Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.4/LTS-Control-1.3.4-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "9bdce3bdd2673fd93921c8f0551d7783121f7f132aa681801eaf381b7a0502b7",
       "size": 111183215
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.4/LTS-Control-Setup-1.3.4.exe",
+      "sha256": "4ddc3b957b54ea7da807a092da13ba617f90e18932f5dd8965edac8d815247b5",
+      "size": 105742433
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.4/lts-control_1.3.4_amd64.deb",
       "sha256": "d82fcc2e63397a29191e7d8d0ef2155d59fce8f856859258705f745cecc41016",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.4",
   "summary": "## [1.3.4] - 2026-11-08\r\n\r\nRelease 1.3.4. The Atmosphere mixes now read as they do on the AZM's own page: the admin ticks which sources are\r\nin each mix (the AZM does not say), the phone's full-screen zone page lists the mixes so a zone on one can be seen and\r\nchanged, and a virtual controller can use that same zone page as its Zones layout. The phone header's Admin button\r\nworks again on a phone that already logged in.\r\n\r\n### Added\r\n\r\n- **Sources inside each mix.** The AZM answers a level for every source against every mix and never says which\r\n  sources were added to a mix (its Message Table lists only the mix's own gain, meter, mute and name), so a mix's\r\n  fold-out listed every source. Audio › Staff screens › **Sources inside each mix** is where the admin ticks the\r\n  members per mix, in the order the Atmosphere page lists them; the fold-out on the sidebar, the phone and the Audio\r\n  pane then shows that pick in that order, and nothing ticked shows every source (`audio.pane.mixMembers`).\r\n- **The phone's zone page on a virtual controller.** Audio › Staff screens › **Zones on a phone** gains a fourth\r\n  shape, **zone tiles that open full screen**: the tapped zone opens as the phone Audio tab's page, a tall fader with\r\n  the meter beside it, big Mute and ±3 dB, the level presets, and the sources and mixes as a tap list; Back closes it\r\n  and the open zone is kept in the controller's address.\r\n\r\n### Fixed\r\n\r\n- **A zone on a mix in the phone's zone page.** The full-screen zone page listed only the sources, so a zone on a mix\r\n  read \"Listening to a mix or another input (14)\" with nothing to tap. The mixes now sit in the list after the\r\n  sources, marked \"(mix)\", the one playing is lit, and tapping one routes the zone to it.\r\n- **Admin on a phone that already logged in.** The phone header's **Admin** button only opened the password prompt,\r\n  which is skipped while the browser holds an admin session, so a phone that had logged in once got nothing on later\r\n  taps. It now opens the admin screens straight away in that case, as the desktop header does.",
-  "signature": "ed25519:z4jsq9BS6pilsUXHeRme6bx8l/PWF9ux2uGhij5S/9kJkJrNbFjC7HrOtRRR097ZEQbcTwgnOcKpnjpCIFrvDA=="
+  "signature": "ed25519:A/2YpPOrUNOdKLTLB3pmJ3lH4E9paSL76BSU5ftux8BwhbE1Ahl2QuFtO7+KofWI65kOYu60ijnnU2K+1eSwAg=="
 }
