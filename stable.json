@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.5",
-  "released": "2026-11-08T16:09:00.211Z",
+  "released": "2026-11-08T16:10:13.478Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.5/LTS-Control-1.3.5-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "1025bd691e86e20340a7684ce68e2ebb9ed1597466e9ff375d9e228c5e6fff62",
       "size": 102438819
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.5/LTS-Control-Setup-1.3.5.exe",
+      "sha256": "27af26f46f83582c0325d6aec3bb531b20bec737c39831233fb7e32bccd0f808",
+      "size": 105750960
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.5/lts-control_1.3.5_amd64.deb",
       "sha256": "f6f76517eb50ee0297fc53474d4511483eb071f1d721aa4606992683eb950919",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.5",
   "summary": "## [1.3.5] - 2026-11-08\r\n\r\nRelease 1.3.5. Self-update on Windows completes instead of leaving the service stopped (a venue on 1.3.4 or older\r\ninstalls this one by hand once, then updates itself), the release workflows take a capital-V tag and CI's format check\r\nis green again, the phone's floor-plan view can be chosen in Settings, and a screenshot review of every screen on\r\ndesktop, tablet and phone fixed four visual faults.\r\n\r\n### Fixed\r\n\r\n- **Screen review, desktop and phone.** A screenshot pass over every staff, controller and admin screen at desktop,\r\n  tablet and phone sizes found no overflow and no console errors, and four visual faults, all fixed: the \"n TVs\r\n  showing it\" banner of the Where is the game? search drew over the header and the search box instead of inside the\r\n  plan; the phone Audio tab's pinned master row was translucent, so the strips scrolling under it showed through;\r\n  the master row's scenes divider opened a wrapped line on its own on a phone; and a long AdBreak chip (\"Ad break ·\r\n  house music · 2 s · back when the game resumes\") ran off the full-screen zone page's header instead of truncating.\r\n  The Audio pane's mix fold-out now puts each source on one line on a wide pane (name, fader, Mute, readout) instead\r\n  of the phone's stacked shape.\r\n- **The phone's floor-plan view was unreachable.** Settings › Phones › TVs tab › **View** offered only List and\r\n  Grid, while the phone also has the floor plan pinned over the list, a dot per TV that finds its row and zone chips\r\n  that keep one zone (the view the user guide already described). The select now offers it.\r\n- **Self-update on Windows.** Admin › System › Software updates downloaded the installer and then sat on \"Installing…\r\n  the server restarts\" with the service stopped, until someone ran the exe by hand. The server started the installer\r\n  as a child of its own `node.exe`, and NSSM stops a service by killing its whole process tree, so the installer's\r\n  first step, `net stop LTS-Control`, killed the installer itself before it had copied a file. The installer is now\r\n  started through `cmd /c start`, which returns at once, so nothing links it to the service when it stops it; the\r\n  five-minute timeout message quotes the installer's own `setup.log` too. The fix lives in the server that launches\r\n  the update, so a Windows venue on 1.3.4 or older installs the next release by hand once, and updates itself from\r\n  then on.\r\n- **Release workflows and a capital-V tag.** A release tagged `V1.3.4` built the Windows installer but failed the\r\n  Debian package (\"a Debian version must start with a digit\") and the update manifest (\"not a version\"), because\r\n  the packages and manifest workflows stripped only a lowercase `v`. All three installer workflows now accept `v`,\r\n  `V` and `v.` and refuse any other tag at their first step with a message that says what to do. A stray\r\n  `test-results/.last-run.json` committed at the repository root is removed and ignored: it failed CI's format check\r\n  on every run since it landed.",
-  "signature": "ed25519:wMM0faENmKxezSzH8dBKrQW7G0EZ54dRE2PqlxxZVB988mkxMGdoc23VYK7U/aLjBxN3dsShqeHkJmW/e1syDQ=="
+  "signature": "ed25519:bUOwbAHcyT+hWy8PEbye09hhZjVtMX4AJg1AVXWNsBEpg2JAr1B7CJfv3BzAN1MO3s1zIOPGQF2kjfmrSbRJBA=="
 }
