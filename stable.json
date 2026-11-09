@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.9",
-  "released": "2026-11-09T09:22:35.305Z",
+  "released": "2026-11-09T09:24:17.472Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.9/LTS-Control-1.3.9-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "153c07805c44f75c0b8ed159cb1d9694ab825c24525ccad5df71823b366f3e8b",
       "size": 111643102
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.9/LTS-Control-Setup-1.3.9.exe",
+      "sha256": "6ca86f29b853ac568d0fc97695481ea594089db72978a52ce95555f15ab90852",
+      "size": 106058382
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.9/lts-control_1.3.9_amd64.deb",
       "sha256": "433720bdc02c874f676b640c090741d1775daf1e58c60c86e090b39e0ecf256f",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.9",
   "summary": "## [1.3.9] - 2026-11-09\r\n\r\nRelease 1.3.9. Three new plugins under Settings › Plugins: **Apple TV** pairs the venue's Apple TV boxes over the\r\nnetwork through a pyatv bridge and gives sources a new **Apple TV over IP** control method (the remote pad and app\r\ngrid work as for a Roku); **Soundtrack** puts the Soundtrack Your Brand players on the Audio pane with now playing,\r\nplay / pause, skip, volume and the playlist picker per zone; **Spotify** links up to five Spotify accounts with PKCE\r\nthrough the venue's own Spotify app and exposes everything Spotify still offers a development-mode app (player,\r\ndevices, playlists, library, search, queue), with its terms stated on the page. Both music services share one music\r\ncard on the Atmosphere zone strips, every tap is audited, and presets, widgets and custom buttons get the same\r\ncommands. Docs: user guide 4.6 and 4.17, stb-setup, audio-setup, how-to 32 to 34, troubleshooting 10.\r\n\r\n### Added\r\n\r\n- **Apple TV plugin: IP control through pyatv.** Settings › Plugins › Apple TV pairs the venue's Apple TV boxes\r\n  (Companion for keys, apps and power; AirPlay for now playing) and keeps a connection to each open through a small\r\n  Python bridge (`python/atv-bridge`, built from the page with **Install bridge**, by `deploy/scripts/get-atv-bridge.sh`\r\n  / `get-atv-bridge.ps1`, or shipped in the Docker image). A new source control method **Apple TV over IP**\r\n  (`stbType: apple_tv`, `stbConfig.playerRef`) gives the source the Apple TV pad and the app grid; the `apple_tv`\r\n  library profile now reads `companion → cec → ir`. Plugin commands `key`, `launch_app`, `power` for presets and buttons.\r\n- **Soundtrack plugin.** Soundtrack Your Brand's players on the Audio pane: now playing, play / pause, skip, volume\r\n  (0 to 16) and the playlist picker per sound zone, linked to the Atmosphere zone each one feeds, with a live\r\n  subscription and a self-slowing poll. Commands `play`, `pause`, `toggle`, `skip`, `volume`, `volume_step`,\r\n  `play_from` for presets and buttons; **Staff may control playback** switch.\r\n- **Spotify plugin.** Up to five Spotify accounts linked with Authorization Code + PKCE through the venue's own\r\n  Spotify app (loopback redirect `/api/plugins/spotify/callback`, or paste the address back), their players on the\r\n  Audio pane with transport, volume, device, shuffle, repeat and a Browse fold-out (playlists, library, search,\r\n  queue, 20 items a page), and every player, library, playlist and search endpoint Spotify still offers a\r\n  development-mode app as commands and staff routes. The page states Spotify's personal, non-commercial terms and\r\n  needs an acknowledgement before an account can be linked.\r\n- **Music cards.** One `MusicCard` for both services: a compact chip on the linked Atmosphere zone's strip, a Music\r\n  group for unlinked players, attribution and links back to the service.\r\n- Plugin framework: `PluginContext.oauth` (one-time OAuth states), `JsonLinesProcess` (a supervised JSON-lines child),\r\n  `StbService.registerBackend` (a plugin takes over a control method), checklist rows for the three plugins,\r\n  `ATV_BRIDGE_PYTHON`, `LTS_APPLETV=1` on the installers, `pnpm appletv:install`.\r\n\r\n### Changed\r\n\r\n- Help › Troubleshooting §10 is \"Plugins\" with one subsection per plugin (anchor `#10-plugins`).",
-  "signature": "ed25519:tlDs/CUNHYqT4DcKAlmygrmiMEejAjRqLFxjEHrQibRnOz5W+HaLnwD3wEnIhOlfAynkO7vvJeoGyGmlJSHZAA=="
+  "signature": "ed25519:j2ynm2ws7s/6Zd5dlsxP2TMFBPmgIWTMY9yj7A9CUxRMiLYrzTM9QXGWooVel2184HeCXTfAvaxv0knceX3kCw=="
 }
