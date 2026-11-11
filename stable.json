@@ -1,30 +1,25 @@
 {
   "channel": "stable",
-  "version": "1.3.10",
-  "released": "2026-11-09T23:09:27.186Z",
+  "version": "1.3.11",
+  "released": "2026-11-11T23:39:26.428Z",
   "assets": {
     "darwin-arm64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.10/LTS-Control-1.3.10-macos-arm64.pkg",
-      "sha256": "8d713d7174582b82426d3005818ee0d3ab6a687ff5af0dbdb61faf760f2d83e9",
-      "size": 103507623
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.11/LTS-Control-1.3.11-macos-arm64.pkg",
+      "sha256": "577ca28f40f3916f15d11daf45657118fdfeb77e089c9002ad21bd713b85971c",
+      "size": 94493471
     },
     "darwin-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.10/LTS-Control-1.3.10-macos-x64.pkg",
-      "sha256": "7a79ceb7cead34c651ec9850a1dc68948fd17cbd627a91f81ceaba79058c41dc",
-      "size": 111668732
-    },
-    "win32-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.10/LTS-Control-Setup-1.3.10.exe",
-      "sha256": "c7f2fbd65f505572eaf3aba34c53e0cad9f8a8be48eb2d845b0213697a73ab5a",
-      "size": 106055502
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.11/LTS-Control-1.3.11-macos-x64.pkg",
+      "sha256": "0af6542ef97f33ce7745bcd3981efd14b05a443be7e78ed52f806e02ccb37f0f",
+      "size": 103041276
     },
     "linux-amd64-deb": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.10/lts-control_1.3.10_amd64.deb",
-      "sha256": "ebc25133f63b23a3833466640ccf1e7ecf8ebef6fa1a3d688a219f1ce2fc4492",
-      "size": 57408504
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.11/lts-control_1.3.11_amd64.deb",
+      "sha256": "13ccad11503d5d25869d3cb483aa60772974b4c4e362556b587b47737672f0f6",
+      "size": 57518608
     }
   },
-  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.10",
-  "summary": "## [1.3.10] - 2026-11-09\r\n\r\nRelease 1.3.10. A fix for Windows venue servers: **Install bridge** (Apple TV) and **Install AdBreak** failed with\r\n`spawn powershell.exe ENOENT` because the service's PATH had no PowerShell; both installers now download uv's\r\nrelease zip from GitHub and unpack it themselves, and the Windows installer widens the service PATH.\r\n\r\n### Fixed\r\n\r\n- **Windows: Install bridge / Install AdBreak no longer fail with `spawn powershell.exe ENOENT`.** The service runs\r\n  with the PATH the installer gave it, which had no PowerShell folder, so fetching `uv` through Astral's\r\n  `irm | iex` installer could not start. Both installers now download uv's release zip from GitHub and unpack\r\n  `uv.exe` themselves (nothing is piped into a shell); Astral's PowerShell installer stays as the fallback, found\r\n  through the Windows folder when it is not on PATH, and a failure names the tools folder and the script to run by\r\n  hand. The Windows installer also adds `System32\\WindowsPowerShell\\v1.0` and `System32\\Wbem` to the service PATH.",
-  "signature": "ed25519:DQFQhQ/cNCrDmshlJcyp6FnB3yFXsAq0VIUfrz0CMsTC0TFoC0F6Uob7yDW5kErZ7lxL/WckgvaAcSYoGGnrCg=="
+  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.11",
+  "summary": "## [1.3.11] - 2026-11-10\r\n\r\nRelease 1.3.11. The Apple TV plugin's **Install bridge** works on Windows again: the bridge asks for Python 3.11 to\r\n3.14, so uv no longer downloads CPython 3.15, for which pyatv's `miniaudio` has no wheel yet; and a bridge\r\nenvironment left incomplete by a failed install shows an error with **Retry install** instead of restarting in a loop.\r\n\r\n### Fixed\r\n\r\n- **Apple TV: Install bridge failed at `uv sync` with \"`miniaudio==1.72` can't be installed … CPython 3.15\".** The\r\n  bridge's `requires-python` had no ceiling, so where no system Python exists (every Windows service) uv downloaded\r\n  the newest CPython. It is now `>=3.11,<3.15` and the lock agrees; uv downloads 3.14 and rebuilds the environment\r\n  on **Retry install**. A new test fails the build when a locked package lacks a wheel for the lowest or highest\r\n  allowed Python on Windows x64, macOS arm64 or Linux, so the ceiling is raised only when the wheels exist.\r\n- **Apple TV: no restart loop on a broken bridge environment.** A python that cannot import pyatv (an install that\r\n  stopped part way) made the plugin read **Unreachable, \"the bridge exited; restarting\"** forever. The bridge now\r\n  exits with a reason, the plugin shows **Error** \"the bridge environment is incomplete … press Retry install\" and\r\n  stops trying; a finished install starts the new bridge at once, and **Restart bridge** tries a stopped one again.",
+  "signature": "ed25519:p2nlamqFBUEGWiPvkYPgRYs1BXFIswy2IJ6KV3yFLXsZHYY2jXeY7+r/lhkGadeAZgqtnnv0Lgf56CQ2qOgfBg=="
 }
