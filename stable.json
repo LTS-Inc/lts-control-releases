@@ -1,30 +1,25 @@
 {
   "channel": "stable",
-  "version": "1.3.11",
-  "released": "2026-11-11T23:41:21.584Z",
+  "version": "1.3.12",
+  "released": "2026-11-12T00:14:13.222Z",
   "assets": {
     "darwin-arm64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.11/LTS-Control-1.3.11-macos-arm64.pkg",
-      "sha256": "577ca28f40f3916f15d11daf45657118fdfeb77e089c9002ad21bd713b85971c",
-      "size": 94493471
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.12/LTS-Control-1.3.12-macos-arm64.pkg",
+      "sha256": "8c24d8acbcaae8d27c560e5fea50e20138e805573d664308eebf0ec6f6eacd28",
+      "size": 94497151
     },
     "darwin-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.11/LTS-Control-1.3.11-macos-x64.pkg",
-      "sha256": "0af6542ef97f33ce7745bcd3981efd14b05a443be7e78ed52f806e02ccb37f0f",
-      "size": 103041276
-    },
-    "win32-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.11/LTS-Control-Setup-1.3.11.exe",
-      "sha256": "73f431983fa4186508611fc74a88950d290d6d3a2a6ea23f3822266ba74164dd",
-      "size": 106162132
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.12/LTS-Control-1.3.12-macos-x64.pkg",
+      "sha256": "364d9ace3767991eb78aa00f4ac10a837db90e06cbeda77a36b9e244bf63b0a3",
+      "size": 103043056
     },
     "linux-amd64-deb": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.11/lts-control_1.3.11_amd64.deb",
-      "sha256": "13ccad11503d5d25869d3cb483aa60772974b4c4e362556b587b47737672f0f6",
-      "size": 57518608
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.12/lts-control_1.3.12_amd64.deb",
+      "sha256": "170ba5364e710c40df389f95ee6a80cbf287b09c2b5140fa5fe3335faaa4eb6a",
+      "size": 57520980
     }
   },
-  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.11",
-  "summary": "## [1.3.11] - 2026-11-10\r\n\r\nRelease 1.3.11. The Apple TV plugin's **Install bridge** works on Windows again: the bridge asks for Python 3.11 to\r\n3.14, so uv no longer downloads CPython 3.15, for which pyatv's `miniaudio` has no wheel yet; and a bridge\r\nenvironment left incomplete by a failed install shows an error with **Retry install** instead of restarting in a loop.\r\n\r\n### Fixed\r\n\r\n- **Apple TV: Install bridge failed at `uv sync` with \"`miniaudio==1.72` can't be installed … CPython 3.15\".** The\r\n  bridge's `requires-python` had no ceiling, so where no system Python exists (every Windows service) uv downloaded\r\n  the newest CPython. It is now `>=3.11,<3.15` and the lock agrees; uv downloads 3.14 and rebuilds the environment\r\n  on **Retry install**. A new test fails the build when a locked package lacks a wheel for the lowest or highest\r\n  allowed Python on Windows x64, macOS arm64 or Linux, so the ceiling is raised only when the wheels exist.\r\n- **Apple TV: no restart loop on a broken bridge environment.** A python that cannot import pyatv (an install that\r\n  stopped part way) made the plugin read **Unreachable, \"the bridge exited; restarting\"** forever. The bridge now\r\n  exits with a reason, the plugin shows **Error** \"the bridge environment is incomplete … press Retry install\" and\r\n  stops trying; a finished install starts the new bridge at once, and **Restart bridge** tries a stopped one again.",
-  "signature": "ed25519:L76yppJf95VyQzsXPeHWIGEcBPU+/LUjLRzTnyrHMgt7sZgnwBw698EyJnwqhbLl7yCAZgK6kascsw6psrTqCw=="
+  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.12",
+  "summary": "## [1.3.12] - 2026-11-12\r\n\r\nRelease 1.3.12. Apple TV pairing works again: every PIN failed with \"`SRPClientSession.__init__() takes 2\r\npositional arguments but 3 were given`\" because a new release of `srptools`, a library pyatv uses for pairing, changed\r\nits interface. The bridge now keeps the compatible version, and proves at install, at every start and in CI that\r\npairing works. After updating, press **Software › Update** on the Apple TV plugin, then pair again.\r\n\r\n### Fixed\r\n\r\n- **Apple TV: pairing failed with `SRPClientSession.__init__() takes 2 positional arguments but 3 were given`.**\r\n  `srptools` 2.0.0 (released 2026-10-26) made an argument keyword-only that pyatv 0.18.0, still the latest release,\r\n  passes positionally, for Companion and AirPlay pairing alike; installs and Docker images built since then picked\r\n  it up. The bridge project and the Docker image now require `srptools>=1.0.1,<2`, and the lock holds 1.0.1.\r\n- **Apple TV: a broken environment shows before the first PIN.** The bridge runs a local pairing self-test\r\n  (`atv_bridge.py --self-test`: pyatv's Companion and AirPlay SRP against a local server, no network) at every start;\r\n  when it fails the plugin shows **Error** \"the bridge environment cannot pair (…); press Update / Retry install\" and\r\n  stops instead of respawning. **Install bridge**, `get-atv-bridge.sh` / `.ps1` and the Docker build end with the same\r\n  self-test, and CI builds the environment from the lock and runs it.",
+  "signature": "ed25519:iWdN4H09yoGjug0pd8zSN3+5kxKDtAcgsDE0aCWPpKGTBg3B64LroYnlruOLau06lyW0YQ2eEjiwZw29ZNFPAA=="
 }
