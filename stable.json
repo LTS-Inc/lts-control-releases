@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.3.12",
-  "released": "2026-11-12T00:14:13.222Z",
+  "released": "2026-11-12T00:14:45.799Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.12/LTS-Control-1.3.12-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "364d9ace3767991eb78aa00f4ac10a837db90e06cbeda77a36b9e244bf63b0a3",
       "size": 103043056
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.12/LTS-Control-Setup-1.3.12.exe",
+      "sha256": "6b4d161bc2d260b77bf5839652cba66d606617a69b92297822adc1fee359efbc",
+      "size": 106159863
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.3.12/lts-control_1.3.12_amd64.deb",
       "sha256": "170ba5364e710c40df389f95ee6a80cbf287b09c2b5140fa5fe3335faaa4eb6a",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.3.12",
   "summary": "## [1.3.12] - 2026-11-12\r\n\r\nRelease 1.3.12. Apple TV pairing works again: every PIN failed with \"`SRPClientSession.__init__() takes 2\r\npositional arguments but 3 were given`\" because a new release of `srptools`, a library pyatv uses for pairing, changed\r\nits interface. The bridge now keeps the compatible version, and proves at install, at every start and in CI that\r\npairing works. After updating, press **Software › Update** on the Apple TV plugin, then pair again.\r\n\r\n### Fixed\r\n\r\n- **Apple TV: pairing failed with `SRPClientSession.__init__() takes 2 positional arguments but 3 were given`.**\r\n  `srptools` 2.0.0 (released 2026-10-26) made an argument keyword-only that pyatv 0.18.0, still the latest release,\r\n  passes positionally, for Companion and AirPlay pairing alike; installs and Docker images built since then picked\r\n  it up. The bridge project and the Docker image now require `srptools>=1.0.1,<2`, and the lock holds 1.0.1.\r\n- **Apple TV: a broken environment shows before the first PIN.** The bridge runs a local pairing self-test\r\n  (`atv_bridge.py --self-test`: pyatv's Companion and AirPlay SRP against a local server, no network) at every start;\r\n  when it fails the plugin shows **Error** \"the bridge environment cannot pair (…); press Update / Retry install\" and\r\n  stops instead of respawning. **Install bridge**, `get-atv-bridge.sh` / `.ps1` and the Docker build end with the same\r\n  self-test, and CI builds the environment from the lock and runs it.",
-  "signature": "ed25519:iWdN4H09yoGjug0pd8zSN3+5kxKDtAcgsDE0aCWPpKGTBg3B64LroYnlruOLau06lyW0YQ2eEjiwZw29ZNFPAA=="
+  "signature": "ed25519:OuMccXSA04S2EoZiqxuOYbZDAttvPaKCZfJbi6thNtIWCckF5/E4sOCXFPq26J7Ur7JAqwp5tGHCQ4f8fDJLBQ=="
 }
