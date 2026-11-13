@@ -1,15 +1,30 @@
 {
   "channel": "stable",
   "version": "1.5.0",
-  "released": "2026-11-13T21:45:15.494Z",
+  "released": "2026-11-13T21:56:17.880Z",
   "assets": {
+    "darwin-arm64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.5.0/LTS-Control-1.5.0-macos-arm64.pkg",
+      "sha256": "aed44f00eaec0951a63391eb2c15d646a7b69283459847840cfa22feeab68633",
+      "size": 96054487
+    },
+    "darwin-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.5.0/LTS-Control-1.5.0-macos-x64.pkg",
+      "sha256": "2db942f1643f7656911fcf8246e8be9c70ce69638a5b44a3a1ecf467c621d345",
+      "size": 104598720
+    },
     "win32-x64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.5.0/LTS-Control-Setup-1.5.0.exe",
-      "sha256": "56f4c3d52ba7ff6d0da717cf8a752edb92cbe82a443ad000a60c3d8c00055b28",
-      "size": 107116305
+      "sha256": "1ffdc1011bc273cfadc1815aa6957723960512b75fd72170aa76cdb3a4661d0f",
+      "size": 107114590
+    },
+    "linux-amd64-deb": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.5.0/lts-control_1.5.0_amd64.deb",
+      "sha256": "ab759e96c02aec6e33d2312ef102333317b007964485c963976e4d76cd19e381",
+      "size": 58611692
     }
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.5.0",
   "summary": "## [1.5.0] - 2026-11-12\r\n\r\nRelease 1.5.0. DMX lighting: stage and architectural fixtures, moving heads included, over Art-Net or sACN nodes or\r\nan ENTTEC DMX USB Pro, patched from the Open Fixture Library or a GDTF file. Groups of fixtures are rows on the\r\nstaff Lights pane, a programmer sets anything a fixture can do, and saved looks are the groups' scenes and preset\r\nsteps. Also: an assessment of what Lutron support would take (docs/lutron.md). Docs: user guide 4.17, how-to 38 and\r\n39, troubleshooting 10.\r\n\r\n### Added\r\n\r\n- **DMX plugin.** Outputs: Art-Net (nodes found with ArtPoll), sACN (multicast or unicast, with priority) and the\r\n  ENTTEC DMX USB Pro. Each universe is sent on change at up to 40 frames a second and re-sent every second.\r\n- **Fixture library.** Search the Open Fixture Library (656 fixtures from 138 manufacturers) and add a definition;\r\n  upload a GDTF file from the manufacturer or gdtf-share.com; use the built-in generic profiles (dimmers,\r\n  RGB/RGBW/RGBA, tunable white); or type a custom channel list. Added definitions stay on the server, so the venue\r\n  needs no internet afterwards.\r\n- **Patch.** Fixtures are patched at their start addresses with clash checks and the next free address.\r\n- **Groups.** A group is one Lights pane row: on/off, level, colour and white mixed for each fixture type (RGB with\r\n  white and amber, CMY, the nearest colour-wheel slot, warm/cool, CTO).\r\n- **Looks.** Looks fade in and are a group's scenes. Whole-rig looks sit on the admin-only \"All DMX\" group for\r\n  presets.\r\n- **Programmer.** Intensity, beam, colour and white, a pan/tilt pad, and a button for every wheel, gobo, shutter and\r\n  macro slot from the fixture's definition. **Locate** lights a fixture up to find it. A channel monitor shows the\r\n  512 values of a universe live.\r\n- **The rig comes back after a restart.** The server is the only source on its universes and restores its last\r\n  state.\r\n- **Windows:** the installer and the plugin open UDP 6454 for Art-Net node replies; `serialport` ships as an\r\n  optional module for USB interfaces.\r\n- **Behaviour settings.** **Fade for staff changes (seconds)**, **Restore the rig after a restart** and **Show All\r\n  DMX to staff**.\r\n- **Outputs show what they are doing.** Each output lists its frame count or its error. An output that cannot open\r\n  (a node's socket, a USB port) is tried again every few seconds, and an sACN output tells its receivers when it\r\n  stops.\r\n- **Fixture defaults.** Channels nobody has set carry the definition's own defaults, so a moving head starts with\r\n  pan and tilt centred and its shutter open. Fixtures without a dimmer channel dim through their colour channels.\r\n- **Setup checklist** row for DMX (listed only while the plugin is enabled) and **System health** fix text for an\r\n  output with an error and for a fixture whose definition is missing.\r\n- **Control Devices › Lighting:** the DMX card now opens the plugin.\r\n- **Network.** Art-Net goes out on UDP 6454 and sACN on UDP 5568 (multicast 239.255.x.x or unicast). On Linux the\r\n  service user must be in the `dialout` group to use a USB interface.\r\n- **API.** Admin routes under `/api/plugins/dmx`: the fixture library, the patch, the programmer, looks, Art-Net\r\n  discovery and the channel monitor.\r\n- **Demo mode.** A demo rig (two RGBW pars, a moving head, four dimmers, two looks) on a built-in Art-Net node.\r\n\r\n### Fixed\r\n\r\n- An admin page could close when the panel was reloaded right after opening: the address",
-  "signature": "ed25519:YSsglI6SQ1Jr+ClEXUERGxUW1jRJ9xBm/qqxv0KoD16nGNIHI8H7E/CgvMwo9qB8S4EkKjHh4yzq8HZ8Ai67Cg=="
+  "signature": "ed25519:nzbKh6B5/Buc9Kes+qa1rEpplZV3pCbtiotIM0J36mIqab8IBfc3iD/pLbGs+2GIggSNUPRmD+vYVFKNUUwdBw=="
 }
