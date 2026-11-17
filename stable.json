@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.6.0",
-  "released": "2026-11-17T10:59:34.019Z",
+  "released": "2026-11-17T11:00:08.439Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.0/LTS-Control-1.6.0-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "ab182357905ce7c128a1590a800de569ba19a0cc862d49f7a6f6fef8e6515655",
       "size": 113748249
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.0/LTS-Control-Setup-1.6.0.exe",
+      "sha256": "4dcf31ec6240fd703d425771de5b8e6c71a87d5025b2f43674c710848541fe80",
+      "size": 107400122
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.0/lts-control_1.6.0_amd64.deb",
       "sha256": "3250de2e263c63774275fff2a3dccdd3b365f672839678e3c94da746ecdce8d7",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.6.0",
   "summary": "## [1.6.0] - 2026-11-16\r\n\r\nRelease 1.6.0. Lighting gets a page of its own and one way to drive every brand together: scenes built by hand,\r\neffects that stay in step across Philips Hue, Govee, WLED and DMX, and a DMX workspace with a patch map, a\r\nprogrammer, effects and paths for moving heads. A venue that already runs lights keeps its setup: the four brands\r\nonly moved from Settings › Plugins to **Lighting**, and a DMX configuration from before this release is read as it\r\nis. Docs: user guide 4.19 and \"Lights\" under staff daily use, how-to 35 onwards, troubleshooting 10.\r\n\r\n### Added\r\n\r\n- **Lighting page** (Admin › Lighting). **Overview** has a card per brand (its state, how many light groups, how\r\n  many on) and every light group of every brand with on/off, brightness, colour, white, its own scenes and **All\r\n  off**. Each brand has a tab with its status, the Enabled switch and its settings. The open tab is kept in the\r\n  address (`?admin=lighting&lt=dmx`).\r\n- **Lighting scenes built by hand** (Lighting › Scenes). Start from **All on**, **All off**, **All one colour** or\r\n  **All strobe**, or tick lights one by one; set colour, white, brightness, an effect and a fade on the lights you\r\n  pick; **Try it** sets the lights without saving; **Capture from the lights** still takes what they show. A saved\r\n  scene is a preset with one lighting scene step, so it is a button on the staff Lights pane and in the Presets\r\n  bar, and schedules and custom buttons run it. **Add as a button** puts it on a phone page.\r\n- **Effects on any light**: Strobe, Pulse, Colour cycle, Rainbow and Chase at a tempo in beats a minute, on one\r\n  clock so different brands stay in step. DMX plays them frame by frame (a chase runs along a group's fixtures),\r\n  WLED up to about five flashes a second; Philips Hue and Govee on the LAN take about one change a second, so a\r\n  faster tempo is slowed for them and the scene editor says so. Anything else set on a light ends its effect;\r\n  **Stop effects** ends them all and puts the lights back.\r\n- **Fades with a change**: a scene or a Lights step can say how long the lights take to get there (Hue, WLED and\r\n  DMX follow it; Govee does not fade).\r\n- **DMX workspace**: the DMX tab is now a set of tabs, one per job (Outputs, Patch, Groups, Programmer, Effects,\r\n  Paths, Monitor, Settings), instead of one long page.\r\n- **Patch map**: each universe is drawn as its 512 addresses with every fixture on it. A fixture being added is\r\n  offered the first free run and shown on the map before it is patched (red where it would clash), with **How\r\n  many** and **Gap** for a row of them. Drag a fixture to move it, with a mouse or a finger; click it for its card\r\n  (name, address, universe, Locate, Unpatch).\r\n- **How a moving head hangs**: reverse pan, reverse tilt, swap them, and how much of its pan and tilt travel it\r\n  may use, per fixture. Scenes and paths are programmed as if every head stood upright. Fixture definitions from\r\n  the Open Fixture Library keep the head's travel in degrees, shown in the programmer and the path editor.\r\n- **Universes separate from outputs**: a universe (what fixtures are patched onto) can leave the server through\r\n  several outputs at once, so a node and a USB interface side by side send the same thing. **Add DMX-AN 2** adds a\r\n  CHAUVET DJ DMX-AN 2 as two universes; **Add USB interface** lists the serial ports found on the server for an\r\n  ENTTEC DMX USB Pro.\r\n- **Programmer**: pick fixtures or a grou",
-  "signature": "ed25519:GxuT4CVHU8+udkIkWTLaB1yY6RSO/YA11vQCehsJaBbiXNIXLNItaugqi5OfqeHr6+3k+HGRglJ/VFhwd57PBA=="
+  "signature": "ed25519:/sOhww4RoUDAKA8FMVPAHjdqWnfAAWcAos/C7hUk1w/AUKeuYEkWd+9sWh/5Xc0fjvSfr4I4ehUlCsVg/eyrDw=="
 }
