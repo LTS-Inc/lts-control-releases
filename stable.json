@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.6.1",
-  "released": "2026-11-20T21:35:32.816Z",
+  "released": "2026-11-20T21:35:59.192Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.1/LTS-Control-1.6.1-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "a708be04a4607746579539874beb355fb3f63003ea517129835e288fc77ec0d2",
       "size": 105006880
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.1/LTS-Control-Setup-1.6.1.exe",
+      "sha256": "cb5fb4ff73c72b8a08c5be73b726a21dc0a831c8926fb0290300c128e294dac5",
+      "size": 108529571
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.1/lts-control_1.6.1_amd64.deb",
       "sha256": "7ad423f19e084874cf6a650c8e1e25908be46a648a79d1f0c82befd741b17c18",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.6.1",
   "summary": "## [1.6.1] - 2026-11-20\r\n\r\nRelease 1.6.1. The staff floor plan on an iPad: the header no longer sits under the status bar, the plan gets most\r\nof the screen and can fill it, and tapping a source shows which TVs already have it. The Schedules Direct guide\r\nsyncs by itself again. Docs: user guide 4.14 and\r\n\"Floor plan (kiosk, iPad, PC)\", how-to 15, troubleshooting 11.\r\n\r\n### Added\r\n\r\n- **The TVs already showing a tapped source stand out.** Tap a source on the plan and, while it waits for the TVs it\r\n  should go to, every TV already on it carries a yellow outline and glow, and the pill counts them (\"DTV1 · on 10\r\n  TVs · tap the TVs that should show it\"). A multiview is outlined when any of its windows shows the source, a\r\n  video wall when any of its screens does. **Settings › Staff screens › When a source is tapped** picks: outline\r\n  the TVs showing it (the default), outline them and fade the others, or no highlight.\r\n- **Floor plan fit** (Settings › Staff screens): **Whole plan**, as before, or **Fill the screen**. A filled plan\r\n  covers its area edge to edge and is dragged to see what hangs off; it can be zoomed out to the whole plan, and\r\n  **fit** returns to the filled view. With Fill, TVs near an edge may start off screen, and a lasso needs the plan\r\n  zoomed out to whole.\r\n- **More plan on a tablet.** On a touch screen of an iPad's size the header keeps to one line with the top-bar\r\n  widgets in it, the plan's margins shrink, the sidebar is narrower, and **Hide** on the sidebar tucks it away so\r\n  the plan takes the whole width (**Sidebar** in the header brings it back; each tablet remembers its own). A\r\n  portrait tablet's plan may take 70 % of the height. Desktops and large kiosk panels are unchanged.\r\n\r\n### Fixed\r\n\r\n- **The Schedules Direct guide went empty every day until Sync was pressed.** The nightly sync failed each\r\n  night: the service's sign-in lasts 24 hours, and the server answered its expiry by fetching a new one and then\r\n  asking again with the old one. The sync now uses the new sign-in, tries again after 5 minutes, 15, then hourly\r\n  when it fails for any other reason, and fetches listings shortly after the server starts when they are more than\r\n  a day old instead of waiting for the night.\r\n- **The header under the iPad status bar.** Opened from the home screen of an iPad or iPhone, the app was drawn\r\n  behind the clock and battery. The staff screens, the admin pages, sheets, banners and the pills above the bottom\r\n  edge now keep clear of the status bar, the notch and the home indicator.\r\n- **Settings › Staff screens: widget rows cut off.** In the Top bar, Sidebar and Audio panel lists a widget's name\r\n  vanished and its move buttons ran out of the box when the column was narrow. The buttons now wrap under the name.\r\n- Opening another floor's plan starts it at its own fit instead of keeping the last plan's zoom.\r\n\r\n### Known limitations\r\n\r\n- The status-bar fix was checked with simulated insets, not on an iPad: look at it once on the venue's tablet, in\r\n  both directions, opened from the home screen. A page already on a home screen keeps its old status-bar style\r\n  until it is removed and added again.",
-  "signature": "ed25519:vdWx7aJJ6WSt3fXHP4JrggPpfCB7VgLXg6Y/cTbIUH5Sg0SY00ZoK7AhYK1TGE8Oocb9PL3NBHK+JmgGFqeEDw=="
+  "signature": "ed25519:zF//I0uXyr+vL+79S+gC4k2iCVht3uumJJNJEOr5B3pm1x0mKPX14ko+NJZuvcL4cUiBXs+aKBCrxUcetWzFBw=="
 }
