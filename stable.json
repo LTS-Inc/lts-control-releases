@@ -1,7 +1,7 @@
 {
   "channel": "stable",
   "version": "1.6.2",
-  "released": "2026-11-23T08:22:14.900Z",
+  "released": "2026-11-23T08:24:30.487Z",
   "assets": {
     "darwin-arm64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.2/LTS-Control-1.6.2-macos-arm64.pkg",
@@ -13,6 +13,11 @@
       "sha256": "5c3a02d818bb621ca39ecf07f49b7ff8f521a063cc5741d4978731bee3792ecf",
       "size": 105034355
     },
+    "win32-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.2/LTS-Control-Setup-1.6.2.exe",
+      "sha256": "362b4718b17e5135088ee62150450db96e16729d0f48695b74571da64f072bf0",
+      "size": 108560655
+    },
     "linux-amd64-deb": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.6.2/lts-control_1.6.2_amd64.deb",
       "sha256": "5474367d68b9464b314fa763cb922731d06b2446a0560ac3ebdfcc115e8e071a",
@@ -21,5 +26,5 @@
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.6.2",
   "summary": "## [1.6.2] - 2026-11-23\r\n\r\nRelease 1.6.2. Puts right what 1.6.1 got wrong on tablets: the header there was crammed, with the zone chips gone\r\nand the clock cut off, and the selected-TVs bar squeezed into it. The bar can now be a row of its own under the\r\nheader, and a tablet uses that row by itself; a venue whose bar is set to \"In the header\" changes nothing. The\r\ntop bar itself is now laid out per class of screen (kiosk and desktop, tablet, phone): every item shown or hidden,\r\nin any order, in the top bar or in the row under it. Docs: user guide 4.14, \"Floor plan (kiosk, iPad, PC)\" and\r\n\"Phones\", how-to 15, troubleshooting 11.\r\n\r\n### Added\r\n\r\n- **Selected-TVs bar: its own row under the header** (Settings › Staff screens › Selected-TVs bar). One line across\r\n  the top of the plan area while TVs are selected, laid over the plan's top edge so the TVs do not move under the\r\n  finger, and sliding sideways when it has more buttons than fit.\r\n- **Top bar items, per class of screen** (Settings › Staff screens › Top bar items; the phone's also under Settings ›\r\n  Phones › Header items). Three layouts: **Kiosk and desktop**, **Tablet**, **Phone**. On the wide screens each\r\n  item (logo and venue name, floor tabs, zone chips, Game day, search, the top-bar widgets, the Sources and Sidebar\r\n  buttons, setup progress, the high-contrast and larger-buttons switches, connection status, version) is shown or\r\n  hidden, moved earlier or later, and put in the top bar or in the **row below**; a **flexible gap** sets where the\r\n  bar splits left from right. The phone header orders and hides its own items (logo and name, status line, the\r\n  switches, an optional version chip, the Admin button). A class without a layout keeps the built-in one, so\r\n  nothing changes until a layout is made; a tablet without one follows the kiosk's; **Reset** drops a layout. A\r\n  strip in the editor and the Preview follow the changes before Save. New setting `ui.header`.\r\n\r\n### Fixed\r\n\r\n- **A tablet's header crammed after 1.6.1.** The tablet layout put the top bar's widgets (All TVs on / off, the\r\n  clock) and a selected-TVs bar set to \"in the header\" into the one-line header: the zone chips were squeezed out,\r\n  the clock was cut off and the bar wrapped into a block. On a tablet the widgets now follow the top bar setting\r\n  again (a slim row of their own by default; in the header only when the venue chose that, sized to fit), the zone\r\n  chips always keep room and slide sideways, and a bar set to the header comes up as the row under it.\r\n\r\n### Changed\r\n\r\n- The staff header's version chip is an item of its own beside the connection status rather than part of it, so\r\n  the two can be placed apart. The older **Top bar** choice (widgets in their own row or in the header) now\r\n  applies to a class of screen whose Top bar items are still the built-in layout.\r\n\r\n### Known limitations\r\n\r\n- Top bar items: the top-bar widgets move as one group (their order within it is still the Top bar list); the\r\n  Sidebar button cannot be hidden; a switch elsewhere that turns an item off (Zone chips in the header, the search\r\n  under Floor plan gestures, the header switches under Accessibility, the version under Kiosk panels) wins over a\r\n  layout, and the editor marks such items. Hiding the logo on a kiosk also removes hold-to-open-admin: use the\r\n  admin hotkey or the `/admin` address. Other layout settings (sidebar side, selected-TVs bar placement, plan fit)\r\n  remain venue-wide, not per",
-  "signature": "ed25519:VCU30/ZwmkZvse3aquw0rnxl0I4nzXzKkYo8q4U82s19JF+XdiLfpS7W53B3FeQq/++VkAaf5ZcFVuGd8juQDA=="
+  "signature": "ed25519:Ttwc7MMI1mjMD2FgCYB5ebuWN533n5onYtzc2nkRC8G3z1ag81M8oQwZZpbxwqPef0MleLgnqSm9YcBBo7wnCA=="
 }
