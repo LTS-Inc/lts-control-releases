@@ -1,30 +1,15 @@
 {
   "channel": "stable",
-  "version": "1.7.0",
-  "released": "2026-11-24T00:09:41.652Z",
+  "version": "1.7.1",
+  "released": "2026-11-27T08:00:18.600Z",
   "assets": {
-    "darwin-arm64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.0/LTS-Control-1.7.0-macos-arm64.pkg",
-      "sha256": "bf48ec8a20490bd1483d330ffb73f43e3bd3abdf63f80818185df7cae35788fb",
-      "size": 96724787
-    },
-    "darwin-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.0/LTS-Control-1.7.0-macos-x64.pkg",
-      "sha256": "6d5dc5b9f422f7213f9efef9818c2598321458445220e52eca5d055c31e5cad3",
-      "size": 105267254
-    },
     "win32-x64": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.0/LTS-Control-Setup-1.7.0.exe",
-      "sha256": "2d8eeb07b19ed16100f2c5c4be25bb24fe5aa87ac25cb9abad5f84c9050aa163",
-      "size": 108711753
-    },
-    "linux-amd64-deb": {
-      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.0/lts-control_1.7.0_amd64.deb",
-      "sha256": "63c012737732d6a358e37377343f2a94c6c94feb5a85d5488ac287169563ae48",
-      "size": 59046968
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.1/LTS-Control-Setup-1.7.1.exe",
+      "sha256": "146daa5ff17b2432eecfce599490246dec31f02a342f5e4eca2636817121c3d6",
+      "size": 108714974
     }
   },
-  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.7.0",
-  "summary": "## [1.7.0] - 2026-11-23\r\n\r\nRelease 1.7.0. Plugins and polish. Two new plugins connect the venue to the world around it: **Webhooks** (another\r\nsystem runs a preset here; this server tells another system what happened) and **Game triggers** (a preset when a\r\nchosen team's game starts or ends). Lights now play effects themselves where the brand can, and Roku and Fire TV /\r\nAndroid TV players are plugins like Apple TV. Underneath, every plugin is described by a manifest, is handed only\r\nthe parts of the server it declares, and is supervised on its own, so one that fails is restarted alone. On the\r\nscreen: every sheet and dialog is a proper modal, tab bars work from the keyboard, anything that deletes asks first,\r\nmessages can be dismissed, pages say when they could not load, and the light theme is readable. Docs: user guide\r\n4.17 and 4.19, how-to 46 to 48, troubleshooting 10, and \"Writing a plugin\" in `docs/development.md`.\r\n\r\n### Added\r\n\r\n- **Game triggers plugin** (Settings › Plugins › Game triggers): run a preset when a chosen team's game starts or\r\n  ends, from the programme guide the server already keeps. A trigger is a team as the listings write it (matched\r\n  as whole words, with other names and an optional sport), a preset for the start with minutes before, and one for\r\n  the end with minutes after. The page lists what a team's name would catch as it is typed, the games coming up\r\n  and what the triggers did; a game on several channels counts once; what fired is kept across a restart so a\r\n  game is never acted on twice, and the end of a game under way is kept even after the guide stops listing it.\r\n  **Paused** holds everything, **Run start now** tries a trigger, and both are commands a button or a preset can\r\n  use. Docs: user guide 4.17, how-to 48, troubleshooting 10.\r\n- **Webhooks plugin** (Settings › Plugins › Webhooks): connect the venue to other systems, both ways.\r\n  - **Incoming hooks**: an address another system calls to run a preset or a few steps here (a point of sale, a\r\n    wall button, an automation service). The address carries the hook's own token and is shown once; what the\r\n    caller sends never chooses what runs; it works for a caller with no staff PIN; a wrong token, a hook switched\r\n    off and an unknown hook answer the same. Optional signed requests (HMAC, five-minute window, no replays), a\r\n    per-hook cooldown and a per-address rate limit. Every run and (once a minute) every refusal is in the Audit.\r\n  - **Outgoing hooks**: an address this server calls for every action, preset steps, a controller going offline,\r\n    server alerts, scheduled tunes or software updates. JSON, signed by default, three tries with a growing wait,\r\n    at most 100 events waiting per hook. Never sent to this server itself or to link-local, multicast or broadcast\r\n    addresses; a redirect is not followed; the address is resolved once and the connection goes to that result.\r\n  - **Deliveries** lists the last fifty attempts. A hook that gave up turns the plugin Degraded.\r\n\r\n  Docs: user guide 4.17, how-to 46 and 47, troubleshooting 10.\r\n\r\n- **Lights play effects themselves where the brand can.** Until now only DMX ran an effect itself; Hue, Govee and\r\n  WLED were sent one change at a time (about one a second for Hue and Govee, ten for WLED), so a fast strobe was\r\n  not one. Now:\r\n  - **WLED** runs strobe, pulse, colour cycle, rainbow and chase as the controller's own effects, at its full\r\n    frame rate and at the tempo se",
-  "signature": "ed25519:UqHjjtnTjjjYEyJkYSEwYJkjxdKLdm68viHM2L3P0MMO1ENTp9ge/g7MyFJXEZQMgutFl4JMU5BCbsGWCy10Cg=="
+  "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.7.1",
+  "summary": "## [1.7.1] - 2026-11-27\r\n\r\nRelease 1.7.1. One fix: a DirecTV receiver that was asked for its guide and scanned at the same time stopped\r\nanswering its own remote for a while. Not yet run against a receiver on site: the pause between requests was chosen\r\nfrom one venue's report, and the automated tests drive a stand-in receiver.\r\n\r\n### Fixed\r\n\r\n- **DirecTV receivers are asked more gently.** Background questions to a receiver (the guide fill, the now-playing\r\n  poll, a lineup scan) are now half a second apart instead of 150 ms, because a box asked several times a second for\r\n  minutes stopped answering its own remote. Staff commands no longer wait out that pause. Starting a receiver scan\r\n  drops the guide requests still queued for that box, and guide refreshes of every lineup read from it wait until the\r\n  scan ends.",
+  "signature": "ed25519:v2Cfr8lSn3wKzHCoq6U/W9Xs7e3pV9dsWjOTxBRdSeBDLJA0GX6CdFCLZybph54XBN+mxMVJ706Sgxl79WdWDg=="
 }
