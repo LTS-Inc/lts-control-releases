@@ -1,15 +1,30 @@
 {
   "channel": "stable",
   "version": "1.7.1",
-  "released": "2026-11-27T08:00:18.600Z",
+  "released": "2026-11-27T08:02:21.727Z",
   "assets": {
+    "darwin-arm64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.1/LTS-Control-1.7.1-macos-arm64.pkg",
+      "sha256": "32a33ad209e563a6ca05c7336fdf8a9043f3d85adab1eb6e4c7c7a2112fb6093",
+      "size": 96735969
+    },
+    "darwin-x64": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.1/LTS-Control-1.7.1-macos-x64.pkg",
+      "sha256": "3f538928a568ddcde327958f04a40d65fb306f5dd1d0b1a8695c555677947865",
+      "size": 114289514
+    },
     "win32-x64": {
       "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.1/LTS-Control-Setup-1.7.1.exe",
       "sha256": "146daa5ff17b2432eecfce599490246dec31f02a342f5e4eca2636817121c3d6",
       "size": 108714974
+    },
+    "linux-amd64-deb": {
+      "url": "https://github.com/LTS-Inc/lts-control-releases/releases/download/v1.7.1/lts-control_1.7.1_amd64.deb",
+      "sha256": "afe5340a6d1b2115fd72d7e2ac66a3f3b2473456dee06c1463bd339a95c18021",
+      "size": 59044812
     }
   },
   "notes": "https://github.com/LTS-Inc/lts-control-releases/releases/tag/v1.7.1",
   "summary": "## [1.7.1] - 2026-11-27\r\n\r\nRelease 1.7.1. One fix: a DirecTV receiver that was asked for its guide and scanned at the same time stopped\r\nanswering its own remote for a while. Not yet run against a receiver on site: the pause between requests was chosen\r\nfrom one venue's report, and the automated tests drive a stand-in receiver.\r\n\r\n### Fixed\r\n\r\n- **DirecTV receivers are asked more gently.** Background questions to a receiver (the guide fill, the now-playing\r\n  poll, a lineup scan) are now half a second apart instead of 150 ms, because a box asked several times a second for\r\n  minutes stopped answering its own remote. Staff commands no longer wait out that pause. Starting a receiver scan\r\n  drops the guide requests still queued for that box, and guide refreshes of every lineup read from it wait until the\r\n  scan ends.",
-  "signature": "ed25519:v2Cfr8lSn3wKzHCoq6U/W9Xs7e3pV9dsWjOTxBRdSeBDLJA0GX6CdFCLZybph54XBN+mxMVJ706Sgxl79WdWDg=="
+  "signature": "ed25519:XOswSPMOlrfTu0+gpZR1UBHzXNu4FHtTXG2nnCjFlsAh2LVYOtCa+7pGzYgPJjIogEM0GgJXz6lFWyJkLBPSDg=="
 }
